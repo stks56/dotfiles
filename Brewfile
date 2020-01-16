@@ -4,6 +4,7 @@ brew "jq"
 brew "mysql"
 brew "redis"
 brew "rbenv"
+brew "terraform"
 brew "wget"
 brew "yarn"
 
