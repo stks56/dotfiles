@@ -8,3 +8,5 @@ do
 
   ln -sfnv "$DOT_PATH/$f" "$HOME"/"$f"
 done
+
+echo "Complete!"
