@@ -10,6 +10,7 @@ brew "yarn"
 
 cask "docker"
 cask "dropbox"
+cask "evernote"
 cask "google-chrome"
 cask 'iterm2'
 cask 'slack'
