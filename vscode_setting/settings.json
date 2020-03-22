@@ -8,5 +8,6 @@
   "editor.formatOnType": true,
   "window.newWindowDimensions": "maximized",
   "files.trimFinalNewlines": true,
-  "files.insertFinalNewline": true
+  "files.insertFinalNewline": true,
+  "workbench.startupEditor": "newUntitledFile"
 }
