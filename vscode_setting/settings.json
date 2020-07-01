@@ -9,5 +9,6 @@
   "window.newWindowDimensions": "maximized",
   "files.trimFinalNewlines": true,
   "files.insertFinalNewline": true,
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.startupEditor": "newUntitledFile",
+  "window.zoomLevel": 0
 }
