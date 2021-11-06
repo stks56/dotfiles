@@ -10,5 +10,6 @@
   "files.trimFinalNewlines": true,
   "files.insertFinalNewline": true,
   "workbench.startupEditor": "newUntitledFile",
-  "window.zoomLevel": 0
+  "window.zoomLevel": 0,
+  "terminal.integrated.defaultProfile.osx": "zsh",
 }
