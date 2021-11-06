@@ -5,8 +5,8 @@ export PATH=/usr/local/bin/code:$PATH
 eval "$(rbenv init -)"
 
 # go
-export GOPATH=$HOME/dev/go
-export PATH=$GOPATH/bin:$PATH
+# export GOPATH=$HOME/dev/go
+# export PATH=$GOPATH/bin:$PATH
 
 # goenv
 export GOENV_ROOT=$HOME/.goenv
