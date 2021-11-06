@@ -1,10 +1,15 @@
 # vscode
-PATH=/usr/local/bin/code:$PATH
+export PATH=/usr/local/bin/code:$PATH
 
 # rbenv
-export PATH
-
-if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
-fi
 eval "$(rbenv init -)"
+
+# go
+export GOPATH=$HOME/dev/go
+export PATH=$GOPATH/bin:$PATH
+
+# goenv
+export GOENV_ROOT=$HOME/.goenv
+export PATH=$GOENV_ROOT/bin:$PATH
+export PATH=$HOME/.goenv/bin:$PATH
+eval "$(goenv init -)"
