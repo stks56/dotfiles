@@ -12,4 +12,8 @@
   "workbench.startupEditor": "newUntitledFile",
   "window.zoomLevel": 0,
   "terminal.integrated.defaultProfile.osx": "zsh",
+  "[go]": {
+    "editor.tabSize": 8,
+    "editor.insertSpaces": false
+  },
 }
