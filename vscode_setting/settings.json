@@ -16,4 +16,10 @@
     "editor.tabSize": 8,
     "editor.insertSpaces": false
   },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
 }
