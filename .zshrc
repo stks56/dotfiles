@@ -24,3 +24,6 @@ export PYENV_ROOT=$HOME/.pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
 export PATH=$PYENV_ROOT/shims:$PATH
 eval "$(pyenv init -)"
+
+# Add .NET Core SDK tools
+export PATH=$HOME/.dotnet/tools:$PATH
