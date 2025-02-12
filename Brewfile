@@ -4,6 +4,7 @@ brew "jq"
 brew "mysql"
 brew "redis"
 brew "wget"
+brew "mise"
 
 cask "docker"
 cask "google-chrome"
