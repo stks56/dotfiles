@@ -1,29 +1,27 @@
+# zsh
+alias ls='ls -G'
+
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # vscode
 export PATH=/usr/local/bin/code:$PATH
-
-# rbenv
-eval "$(rbenv init -)"
-
-# go
-# export GOPATH=$HOME/dev/go
-# export PATH=$GOPATH/bin:$PATH
-
-# goenv
-export GOENV_ROOT=$HOME/.goenv
-export PATH=$GOENV_ROOT/bin:$PATH
-export PATH=$HOME/.goenv/bin:$PATH
-eval "$(goenv init -)"
 
 # node
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# pyenv
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-export PATH=$PYENV_ROOT/shims:$PATH
-eval "$(pyenv init -)"
-
 # Add .NET Core SDK tools
 export PATH=$HOME/.dotnet/tools:$PATH
+
+# mise
+# eval "$(mise activate zsh)"
+export PATH="$HOME/.local/share/mise/shims:$PATH"
+
+# go
+export PATH="$(go env GOPATH)/bin:$PATH"
+export PATH=$PATH:$HOME/.local/share/mise/installs/go/latest/bin
