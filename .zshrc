@@ -1,5 +1,10 @@
 # zsh alias
-alias ls='ls -G'
+alias g='git'
+alias k='kubectl'
+alias h='history'
+alias hsf="history | tail -r | fzf"
+alias hsc="history | tail -r | fzf | awk '{\$1=\"\"; print substr(\$0,2)}' | tr -d '\n' | pbcopy"
+
 
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
