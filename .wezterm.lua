@@ -52,6 +52,29 @@ config.keys = {
         mods = "SHIFT|CMD",
         action = wezterm.action {SendString = "\x15"} -- backward-kill-line
     },
+    {
+        key="LeftArrow",
+        mods="ALT",
+        action=wezterm.action{SendString="\x1bb"}, -- backward-word
+    },
+    {
+        key="RightArrow",
+        mods="ALT",
+        action=wezterm.action{SendString="\x1bf"}, -- backward-word
+    },
+    {
+        key="LeftArrow",
+        mods="CMD",
+        action=wezterm.action{SendString="\x01"}, -- beginning-of-line
+    },
+    {
+        key="RightArrow",
+        mods="CMD",
+        action=wezterm.action{SendString="\x05"}, -- end-of-line¡¡
+    },
+    -- {key="LeftArrow", mods="CMD|SHIFT", action=wezterm.action{SendKey={key="Home"}}},
+    -- {key="LeftArrow", mods="SHIFT", action="SelectTextAtCursorLeft"},
+    -- {key="RightArrow", mods="SHIFT", action="SelectTextAtCursorRight"}
 }
 
 -- End configuration

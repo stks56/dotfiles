@@ -4,7 +4,8 @@ alias k='kubectl'
 alias h='history'
 alias hsf="history | tail -r | fzf"
 alias hsc="history | tail -r | fzf | awk '{\$1=\"\"; print substr(\$0,2)}' | tr -d '\n' | pbcopy"
-
+alias fzfc="fzf | tr -d '\n' | pbcopy"
+alias convert_unix_time='function _convert_unix_time() { date -r $(echo "$1 / 1000" | bc) +"%Y-%m-%d %H:%M:%S"; }; _convert_unix_time'
 
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -53,3 +54,6 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/history-search-multi-word
 zinit light zsh-users/zsh-completions
+
+# fzf
+export FZF_DEFAULT_COMMAND='fd'
