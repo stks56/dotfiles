@@ -89,7 +89,7 @@ create_symlink() {
 # 1. Process dotfiles/dot-directories in the home directory
 echo "Processing files in home directory..."
 # Use find to locate dotfiles/dirs, excluding .git, .config, ., ..
-find "$DOTFILES_SOURCE_DIR" -maxdepth 1 -name '.*' -not -name '.git' -not -name '.config' -not -name '.' -not -name '..' | while IFS= read -r source_item; do
+find "$DOTFILES_SOURCE_DIR" -maxdepth 1 -name '.*' -not -name '.git' -not -name '.gitignore' -not -name '.config' -not -name '.' -not -name '..' | while IFS= read -r source_item; do
   target_item="$TARGET_HOME_DIR/$(basename "$source_item")"
   create_symlink "$source_item" "$target_item"
 done
