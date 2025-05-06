@@ -5,4 +5,5 @@ vim.keymap.set('n', 'h', 'i')
 
 vim.opt.clipboard = "unnamedplus"
 
+require("config.option")
 require("config.lazy")
