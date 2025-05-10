@@ -19,6 +19,7 @@ return {
 			ensure_installed = {
 				"stylua",
 				"luacheck",
+				"golangci-lint",
 			},
 		},
 	},
@@ -29,6 +30,7 @@ return {
 			ensure_installed = {
 				"efm", -- EFM Language Server (Formatter/Linter連携用)
 				"lua_ls", -- Lua Language Server
+				"gopls",
 			},
 		},
 	},
