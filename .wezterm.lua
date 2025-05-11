@@ -75,7 +75,12 @@ if mac then
         {
             key="RightArrow",
             mods="CMD",
-            action=wezterm.action{SendString="\x04"}, -- end-of-line¡¡
+            action=wezterm.action{SendString="\x04"}, -- end-of-line
+        },
+        {
+            key = 'C',
+            mods = 'CMD|SHIFT',
+            action = wezterm.action{SendString="\x03"}
         },
         -- {key="LeftArrow", mods="CMD|SHIFT", action=wezterm.action{SendKey={key="Home"}}},
         -- {key="LeftArrow", mods="SHIFT", action="SelectTextAtCursorLeft"},
