@@ -47,6 +47,7 @@ require("lazy").setup({
 		{ import = "plugins.neotest" },
 		{ import = "plugins.nightfox" },
 		{ import = "plugins.nvim-tree" },
+		{ import = "plugins.oil" },
 		{ import = "plugins.telescope" },
 		{ import = "plugins.treesitter" },
 		{ import = "plugins.treesj" },
