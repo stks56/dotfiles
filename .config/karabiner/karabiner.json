@@ -344,6 +344,22 @@
                             },
                             {
                                 "from": {
+                                    "key_code": "slash",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "slash",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
                                     "key_code": "delete_or_backspace",
                                     "modifiers": {
                                         "mandatory": ["control"],
@@ -365,19 +381,6 @@
                                         "mandatory": ["control"],
                                         "optional": ["any"]
                                     }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "spacebar",
-                                        "modifiers": ["command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": { "mandatory": ["control"] }
                                 },
                                 "to": [
                                     {
