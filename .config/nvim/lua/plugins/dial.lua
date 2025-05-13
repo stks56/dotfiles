@@ -1,5 +1,6 @@
 return {
 	"monaqa/dial.nvim",
+	opts = {},
 	keys = {
 		{
 			"<C-a>",
