@@ -18,4 +18,5 @@ return {
 			indent = { enable = false },
 		})
 	end,
+	version = "*",
 }

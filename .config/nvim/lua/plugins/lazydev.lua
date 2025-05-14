@@ -10,6 +10,7 @@ return {
 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 			},
 		},
+		version = "*",
 	},
 	{ -- optional cmp completion source for require statements and module annotations
 		"hrsh7th/nvim-cmp",
@@ -20,6 +21,7 @@ return {
 				group_index = 0, -- set group index to 0 to skip loading LuaLS completions
 			})
 		end,
+		version = "*",
 	},
 	-- { -- optional blink completion source for require statements and module annotations
 	--   "saghen/blink.cmp",

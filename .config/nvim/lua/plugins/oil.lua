@@ -27,4 +27,5 @@ return {
 			show_hidden = true,
 		},
 	},
+	version = "*",
 }

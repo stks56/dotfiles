@@ -3,4 +3,5 @@ return {
 	keys = { "<space>m", "<space>j", "<space>s" },
 	dependencies = { "nvim-treesitter/nvim-treesitter" },
 	opts = {},
+	version = "*",
 }

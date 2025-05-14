@@ -34,4 +34,5 @@ return {
 			desc = "Quickfix List (Trouble)",
 		},
 	},
+	version = "*",
 }

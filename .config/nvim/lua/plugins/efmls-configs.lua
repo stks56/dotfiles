@@ -1,4 +1,5 @@
 return {
-  'creativenull/efmls-configs-nvim',
-  dependencies = { 'neovim/nvim-lspconfig' },
+	"creativenull/efmls-configs-nvim",
+	dependencies = { "neovim/nvim-lspconfig" },
+	version = "*",
 }

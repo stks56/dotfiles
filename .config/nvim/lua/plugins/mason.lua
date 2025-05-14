@@ -12,6 +12,7 @@ return {
 				},
 			},
 		},
+		version = "*",
 	},
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -22,6 +23,7 @@ return {
 				"golangci-lint",
 			},
 		},
+		version = "*",
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
@@ -33,5 +35,6 @@ return {
 				"gopls",
 			},
 		},
+		version = "*",
 	},
 }

@@ -11,4 +11,5 @@ return {
 			desc = "Buffer Local Keymaps (which-key)",
 		},
 	},
+	version = "*",
 }

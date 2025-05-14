@@ -46,6 +46,7 @@ return {
 				desc = "Stop running test",
 			},
 		},
+		version = "*",
 	},
 	{
 		"andythigpen/nvim-coverage",
@@ -59,5 +60,6 @@ return {
 				},
 			},
 		},
+		version = "*",
 	},
 }
