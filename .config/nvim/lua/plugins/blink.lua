@@ -24,6 +24,13 @@ return {
 				},
 			},
 		},
+		completion = {
+			list = {
+				selection = {
+					preselect = false,
+				},
+			},
+		},
 	},
 	version = "*",
 }
