@@ -9,3 +9,5 @@ vim.keymap.set("v", "i", "k")
 vim.keymap.set("v", "k", "j")
 vim.keymap.set("v", "j", "h")
 vim.keymap.set("v", "h", "i")
+
+vim.keymap.set("n", "<Esc><Esc>", ":<C-u>set nohlsearch<Return>", opts)
