@@ -5,9 +5,11 @@ alias h='history'
 alias hsf="history | tail -r | fzf"
 alias hsc="history | tail -r | fzf | awk '{\$1=\"\"; print substr(\$0,2)}' | tr -d '\n' | pbcopy"
 alias fzfc="fzf | tr -d '\n' | pbcopy"
-alias convert_unix_time='function _convert_unix_time() { date -r $(echo "$1 / 1000" | bc) +"%Y-%m-%d %H:%M:%S"; }; _convert_unix_time'
+alias encode_unix_time='function _encode_unix_time() { date -j -f "%Y-%m-%d %H:%M:%S" "$1" +"%s000"; }; _encode_unix_time'
+alias decode_unix_time='function _decode_unix_time() { date -r $(echo "$1 / 1000" | bc) +"%Y-%m-%d %H:%M:%S"; }; _decode_unix_time'
 alias vi="nvim"
 alias vim="nvim"
+alias lg="lazygit"
 
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
