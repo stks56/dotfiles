@@ -10,6 +10,7 @@ alias decode_unix_time='function _decode_unix_time() { date -r $(echo "$1 / 1000
 alias vi="nvim"
 alias vim="nvim"
 alias lg="lazygit"
+alias ls="eza -la --icons --git --time-style relative"
 
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
