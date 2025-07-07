@@ -11,5 +11,17 @@ return {
 			desc = "Buffer Local Keymaps (which-key)",
 		},
 	},
+	config = function()
+		local wk = require("which-key")
+
+		wk.add({
+			{ "<leader>f", group = "Fuzzy Finds (Telescope)" },
+			{ "<leader>e", group = "Explorer (Oil)" },
+			{ "<leader>x", group = "Diagnostics (Trouble)" },
+			{ "<leader>j", group = "Block Operations (Treesj)" },
+			{ "<leader>v", group = "View (Noneck)" },
+			{ "<leader>t", group = "Tests (neotest)" },
+		})
+	end,
 	version = "*",
 }

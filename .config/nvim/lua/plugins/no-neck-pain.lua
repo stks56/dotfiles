@@ -5,6 +5,6 @@ return {
 		width = 200,
 	},
 	keys = {
-		{ "<leader>nn", "<cmd>NoNeckPain<CR>", desc = "Toggle NoNeckPain" },
+		{ "<leader>vn", "<cmd>NoNeckPain<CR>", desc = "Toggle NoNeckPain" },
 	},
 }

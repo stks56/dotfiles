@@ -4,18 +4,18 @@ return {
 	lazy = false,
 	keys = {
 		{
-			"<leader>dw",
-			function()
-				require("oil").open(vim.fn.getcwd())
-			end,
-			desc = "Oil: Open working directory",
-		},
-		{
-			"<leader>dc",
+			"<leader>ee",
 			function()
 				require("oil").open()
 			end,
-			desc = "Oil: Open current directory",
+			desc = "Explore current directory (Oil)",
+		},
+		{
+			"<leader>ew",
+			function()
+				require("oil").open(vim.fn.getcwd())
+			end,
+			desc = "Explore working directory (Oil)",
 		},
 	},
 	---@module 'oil'
