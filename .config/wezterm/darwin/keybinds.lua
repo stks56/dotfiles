@@ -6,111 +6,74 @@ local M = {}
 function M.apply_to_config(config)
 	config.keys = {
 		{
-			key = "f",
-			mods = "CMD",
-			action = act({ SendString = "\x06" }), -- forward-char
+			key = "F",
+			mods = "CTRL|SHIFT",
+			action = act({ SendString = "\x1bf" }), -- beginning-of-word
 		},
 		{
-			key = "b",
-			mods = "CMD",
-			action = act({ SendString = "\x02" }), -- previous-line
-		},
-		{
-			key = "p",
-			mods = "CMD",
-			action = act({ SendString = "\x10" }), -- previous-line
-		},
-		{
-			key = "n",
-			mods = "CMD",
-			action = act({ SendString = "\x0E" }), -- next-line
-		},
-		{
-			key = "a",
-			mods = "CMD",
-			action = act({ SendString = "\x01" }), -- beginning-of-line
-		},
-		{
-			key = "e",
-			mods = "CMD",
-			action = act({ SendString = "\x05" }), -- end-of-line
-		},
-		{
-			key = "l",
-			mods = "CMD",
-			action = act.ClearScrollback("ScrollbackOnly"),
-		},
-		{
-			key = "d",
-			mods = "CMD",
-			action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
-		},
-		{
-			key = "D",
-			mods = "CMD",
-			action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
-		},
-		{
-			key = "w",
-			mods = "CMD",
-			action = act.CloseCurrentPane({ confirm = true }),
+			key = "B",
+			mods = "CTRL|SHIFT",
+			action = act({ SendString = "\x1bb" }), -- beginning-of-word
 		},
 		{
 			key = "Tab",
-			mods = "CMD",
+			mods = "CTRL",
 			action = act.ActivatePaneDirection("Next"),
 		},
 		{
 			key = "q",
-			mods = "CMD",
+			mods = "CTRL",
 			action = act({ SendString = "\x00" }),
 		},
 		{
-			key = "e",
-			mods = "CMD",
-			action = act({ SendString = "\x04" }),
-		},
-		{
 			key = "Backspace",
-			mods = "CMD",
+			mods = "CTRL",
 			action = act({ SendString = "\x16" }), -- backward-kill-word
 		},
 		{
 			key = "Backspace",
-			mods = "CMD|SHIFT",
+			mods = "CTRL|SHIFT",
 			action = act({ SendString = "\x14" }), -- backward-kill-line
 		},
 		{
 			key = "c",
-			mods = "CMD",
+			mods = "CTRL",
 			action = act.CopyTo("Clipboard"),
 		},
 		{
 			key = "v",
-			mods = "CMD",
+			mods = "CTRL",
 			action = act.PasteFrom("Clipboard"),
 		},
 		{
 			key = "C",
-			mods = "CMD|SHIFT",
+			mods = "CTRL|SHIFT",
 			action = act({ SendString = "\x03" }),
 		},
 		{
 			key = "m",
-			mods = "CMD",
+			mods = "CTRL",
 			action = act.PaneSelect,
 		},
 		{
 			key = "m",
-			mods = "CMD",
+			mods = "CTRL",
 			action = act.PaneSelect,
 		},
 		{
-			key = "x",
-			mods = "CMD",
-			action = wezterm.action({ SendString = "\x18" }), -- CAN
+			key = "s",
+			mods = "CTRL",
+			action = wezterm.action.DisableDefaultKeyBinding,
 		},
 	}
+
+	for i = 1, 8 do
+		table.insert(config.keys, {
+			key = tostring(i),
+			mods = "CTRL",
+			action = act.ActivateTab(i - 1),
+		})
+	end
 end
 
 return M
