@@ -1,0 +1,84 @@
+{
+    "profiles": [
+        {
+            "complex_modifications": {
+                "rules": [
+									{
+										"title": "Caps Lock to Ctrl globally, and Ctrl to Command except in WezTerm",
+										"rules": [
+											{
+												"description": "Caps Lock to Left Control",
+												"manipulators": [
+													{
+														"from": {
+															"key_code": "caps_lock",
+															"modifiers": {
+																"optional": [
+																	"any"
+																]
+															}
+														},
+														"to": [
+															{
+																"key_code": "right_control"
+															}
+														],
+														"type": "basic"
+													}
+												]
+											},
+											{
+												"description": "Right Control to Right Command unless frontmost application is WezTerm",
+												"manipulators": [
+													{
+														"from": {
+															"key_code": "right_control",
+															"modifiers": {
+																"optional": [
+																	"any"
+																]
+															}
+														},
+														"to": [
+															{
+																"key_code": "right_command"
+															}
+														],
+														"type": "basic",
+														"conditions": [
+															{
+																"type": "frontmost_application_unless",
+																"bundle_identifiers": [
+																	"^com\\.github\\.wez\\.wezterm$"
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+                ]
+            },
+            "devices": [
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 591,
+                        "vendor_id": 1452
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "left_command" },
+                            "to": [{ "key_code": "left_option" }]
+                        },
+                        {
+                            "from": { "key_code": "left_option" },
+                            "to": [{ "key_code": "left_command" }]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
