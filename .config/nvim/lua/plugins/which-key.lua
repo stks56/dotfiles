@@ -21,6 +21,9 @@ return {
 			{ "<leader>j", group = "Block Operations (Treesj)" },
 			{ "<leader>v", group = "View (Noneck)" },
 			{ "<leader>t", group = "Tests (neotest)" },
+			{ "<leader>y", group = "Yanks (copy-file-path)" },
+			{ "<leader>l", group = "LSP (builtin)" },
+			{ "<leader>a", group = "AI/Claude Code (claudecode.nvim)" },
 		})
 	end,
 	version = "*",
