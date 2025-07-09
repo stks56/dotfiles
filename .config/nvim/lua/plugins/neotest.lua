@@ -9,27 +9,20 @@ return {
 			"fredrikaverpil/neotest-golang",
 		},
 		config = function()
-			local neotest_golang_opts = {}
+			local neotest_golang_opts = {} -- Specify custom configuration
 			require("neotest").setup({
 				adapters = {
-					require("neotest-golang")(neotest_golang_opts),
+					require("neotest-golang"),
 				},
 			})
 		end,
 		keys = {
 			{
-				"<leader>t",
-				function()
-					require("neotest").run.run()
-				end,
-				desc = "Run nearest test",
-			},
-			{
-				"<leader>T",
+				"<leader>tt",
 				function()
 					require("neotest").run.run(vim.fn.expand("%"))
 				end,
-				desc = "Run all tests in current file",
+				desc = "Run all tests in current file (neotest)",
 			},
 			{
 				"<leader>to",
