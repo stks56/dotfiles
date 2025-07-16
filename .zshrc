@@ -62,3 +62,7 @@ zinit light zsh-users/zsh-completions
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd'
+alias ls="eza -la --icons --git --time-style relative"
+
+# tmux
+bindkey -r "^S"
