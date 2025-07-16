@@ -6,16 +6,6 @@ local M = {}
 function M.apply_to_config(config)
 	config.keys = {
 		{
-			key = "F",
-			mods = "CTRL|SHIFT",
-			action = act({ SendString = "\x1bf" }), -- beginning-of-word
-		},
-		{
-			key = "B",
-			mods = "CTRL|SHIFT",
-			action = act({ SendString = "\x1bb" }), -- beginning-of-word
-		},
-		{
 			key = "Tab",
 			mods = "CTRL",
 			action = act.ActivatePaneDirection("Next"),
@@ -26,34 +16,14 @@ function M.apply_to_config(config)
 			action = act({ SendString = "\x00" }),
 		},
 		{
-			key = "Backspace",
+			key = "w",
 			mods = "CTRL",
-			action = act({ SendString = "\x16" }), -- backward-kill-word
+			action = act.CloseCurrentTab({ confirm = true }),
 		},
 		{
-			key = "Backspace",
-			mods = "CTRL|SHIFT",
-			action = act({ SendString = "\x14" }), -- backward-kill-line
-		},
-		{
-			key = "c",
+			key = "t",
 			mods = "CTRL",
-			action = act.CopyTo("Clipboard"),
-		},
-		{
-			key = "v",
-			mods = "CTRL",
-			action = act.PasteFrom("Clipboard"),
-		},
-		{
-			key = "C",
-			mods = "CTRL|SHIFT",
-			action = act({ SendString = "\x03" }),
-		},
-		{
-			key = "m",
-			mods = "CTRL",
-			action = act.PaneSelect,
+			action = act.SpawnTab("CurrentPaneDomain"),
 		},
 		{
 			key = "m",
@@ -63,7 +33,7 @@ function M.apply_to_config(config)
 		{
 			key = "s",
 			mods = "CTRL",
-			action = wezterm.action.DisableDefaultKeyBinding,
+			action = wezterm.action.DisableDefaultAssignment,
 		},
 	}
 
