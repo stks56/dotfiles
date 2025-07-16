@@ -6,3 +6,5 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.signcolumn = "yes"
 vim.opt.autoread = true
+vim.opt.foldmethod = "indent"
+vim.opt.foldlevel = 99
