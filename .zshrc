@@ -11,6 +11,9 @@ alias vi="nvim"
 alias vim="nvim"
 alias lg="lazygit"
 
+# XDG
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -41,6 +44,10 @@ if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
         print -P "%F{33} %F{34}Installation successful.%f%b" || \
         print -P "%F{160} The clone has failed.%f%b"
 fi
+
+# Initialize completion system
+autoload -Uz compinit
+compinit
 
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit

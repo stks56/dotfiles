@@ -2,17 +2,19 @@ return {
 	{
 		"nvim-neotest/neotest",
 		dependencies = {
-			"nvim-neotest/nvim-nio",
 			"nvim-lua/plenary.nvim",
 			"antoinemadec/FixCursorHold.nvim",
 			"nvim-treesitter/nvim-treesitter",
 			"fredrikaverpil/neotest-golang",
 		},
 		config = function()
-			local neotest_golang_opts = {} -- Specify custom configuration
+			---@diagnostic disable-next-line: missing-fields
 			require("neotest").setup({
 				adapters = {
-					require("neotest-golang"),
+					require("neotest-golang")({
+						go_test_args = { "-v", "-race", "-count=1" },
+						dap_go_enabled = false,
+					}),
 				},
 			})
 		end,
