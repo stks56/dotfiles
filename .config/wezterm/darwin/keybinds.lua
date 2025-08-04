@@ -5,7 +5,7 @@ local M = {}
 
 function M.apply_to_config(config)
 	config.leader = {
-		key = "d",
+		key = "s",
 		mods = "CTRL",
 		timeout_milliseconds = 1000,
 	}
@@ -27,18 +27,28 @@ function M.apply_to_config(config)
 			action = act.SpawnTab("CurrentPaneDomain"),
 		},
 		{
-			key = "q",
+			key = "w",
 			mods = "CTRL",
-			action = act({ SendString = "\x00" }),
+			action = act.CloseCurrentPane({ confirm = true }),
 		},
 		{
-			key = '"',
+			key = "t",
 			mods = "LEADER",
+			action = act.ShowTabNavigator,
+		},
+		{
+			key = "z",
+			mods = "LEADER",
+			action = act.TogglePaneZoomState,
+		},
+		{
+			key = "'",
+			mods = "CTRL",
 			action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
 		},
 		{
-			key = "%",
-			mods = "LEADER",
+			key = '"',
+			mods = "CTRL|SHIFT",
 			action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 		},
 		{
@@ -68,7 +78,7 @@ function M.apply_to_config(config)
 		},
 		{
 			key = "m",
-			mods = "CTRL",
+			mods = "LEADER",
 			action = act.PaneSelect,
 		},
 		{
