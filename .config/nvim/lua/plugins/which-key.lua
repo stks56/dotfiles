@@ -24,6 +24,7 @@ return {
 			{ "<leader>y", group = "Yanks (copy-file-path)" },
 			{ "<leader>l", group = "LSP (builtin)" },
 			{ "<leader>a", group = "AI/Claude Code (claudecode.nvim)" },
+			{ "<leader>b", group = "Basic others (auto-save)" },
 		})
 	end,
 	version = "*",
