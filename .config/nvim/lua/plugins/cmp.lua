@@ -8,7 +8,7 @@ return {
 					"lazydev",
 					"path",
 					"snippets",
-					-- "buffer",
+					"buffer",
 				},
 				providers = {
 					lazydev = {

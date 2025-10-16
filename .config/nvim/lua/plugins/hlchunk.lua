@@ -3,7 +3,7 @@ return {
 	opts = {
 		chunk = { enable = true },
 		indent = {
-			enable = true,
+			-- enable = true,
 			use_treesitter = true,
 		},
 		blank = {

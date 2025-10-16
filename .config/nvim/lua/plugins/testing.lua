@@ -1,10 +1,10 @@
 return {
 	"nvim-neotest/neotest",
 	dependencies = {
+		"nvim-treesitter/nvim-treesitter",
 		"nvim-neotest/nvim-nio",
 		"nvim-lua/plenary.nvim",
 		"antoinemadec/FixCursorHold.nvim",
-		"nvim-treesitter/nvim-treesitter",
 		"fredrikaverpil/neotest-golang",
 	},
 	config = function()
@@ -28,6 +28,13 @@ return {
 		},
 		{
 			"<leader>to",
+			function()
+				require("neotest").output.open()
+			end,
+			desc = "Open test output",
+		},
+		{
+			"<leader>tp",
 			function()
 				require("neotest").output_panel.toggle()
 			end,

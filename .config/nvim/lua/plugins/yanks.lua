@@ -8,6 +8,7 @@ return {
 			{ "<leader>yf", ":CopyFileName<CR>", desc = "Copy file name (copy-file-path)" },
 			{ "<leader>yw", ":CopyWorkspacePath<CR>", desc = "Copy workspace path (copy-file-path)" },
 		},
+		config = function() end,
 		version = "*",
 	},
 }

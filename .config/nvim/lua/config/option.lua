@@ -8,3 +8,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.autoread = true
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
+vim.opt.cmdheight = 0
+vim.opt.eol = false
+vim.opt.fixeol = true
+vim.opt.swapfile = false

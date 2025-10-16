@@ -1,22 +1,45 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "i", "k")
-vim.keymap.set("n", "k", "j")
-vim.keymap.set("n", "j", "h")
-vim.keymap.set("n", "h", "i")
+local keymap = vim.keymap.set
+local opts = { noremap = true, silent = true }
+local noremap = { noremap = true }
 
-vim.keymap.set("v", "i", "k")
-vim.keymap.set("v", "k", "j")
-vim.keymap.set("v", "j", "h")
-vim.keymap.set("v", "h", "i")
+keymap("n", "i", "k")
+keymap("n", "k", "j")
+keymap("n", "j", "h")
+keymap("n", "h", "i")
 
-vim.keymap.set("n", "<leader>/", ":<C-u>set nohlsearch<Return>")
+keymap("v", "i", "k")
+keymap("v", "k", "j")
+keymap("v", "j", "h")
+keymap("v", "h", "i")
 
-vim.keymap.set("n", "<leader>ll", vim.lsp.buf.definition, { desc = "Lsp Definition (builtin)" })
-vim.keymap.set("n", "<leader>ln", vim.lsp.buf.rename, { desc = "Lsp Rename (builtin)" })
-vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Lsp CodeAction (builtin)" })
-vim.keymap.set("n", "<leader>lr", vim.lsp.buf.references, { desc = "Lsp References (builtin)" })
-vim.keymap.set("n", "<leader>li", vim.lsp.buf.implementation, { desc = "Lsp Implementation (builtin)" })
-vim.keymap.set("n", "<leader>lt", vim.lsp.buf.type_definition, { desc = "Lsp TypeDefinition (builtin)" })
-vim.keymap.set("n", "<leader>lo", vim.lsp.buf.document_symbol, { desc = "Lsp DocumentSymbol (builtin)" })
-vim.keymap.set("n", "<leader>ls", vim.lsp.buf.signature_help, { desc = "Lsp SignatureHelp (builtin)" })
+keymap("n", "<leader>/", ":<C-u nohlsearch<Return>")
+
+-- LSP
+keymap("n", "<leader>ll", vim.lsp.buf.definition, { desc = "Lsp Definition (builtin)" })
+keymap("n", "<leader>ln", vim.lsp.buf.rename, { desc = "Lsp Rename (builtin)" })
+keymap("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Lsp CodeAction (builtin)" })
+keymap("n", "<leader>lr", vim.lsp.buf.references, { desc = "Lsp References (builtin)" })
+keymap("n", "<leader>li", vim.lsp.buf.implementation, { desc = "Lsp Implementation (builtin)" })
+keymap("n", "<leader>lt", vim.lsp.buf.type_definition, { desc = "Lsp TypeDefinition (builtin)" })
+keymap("n", "<leader>lo", vim.lsp.buf.document_symbol, { desc = "Lsp DocumentSymbol (builtin)" })
+keymap("n", "<leader>ls", vim.lsp.buf.signature_help, { desc = "Lsp SignatureHelp (builtin)" })
+keymap("n", "<leader>lf", vim.lsp.buf.format, { desc = "Lsp Format (builtin)" })
+
+-- Redo reverse u
+keymap("n", "U", "<c-r>", opts)
+
+-- Clear Slash Search
+keymap("n", "<c-r>", ":nohlsearch<CR>", opts)
+
+-- x to blackhole register
+keymap("n", "x", '"_d', opts)
+keymap("n", "xx", "_dd", opts)
+keymap("n", "X", '"_D', opts)
+keymap("x", "x", '"_x', opts)
+keymap("o", "x", "d", noremap)
+
+-- select innner word on space
+keymap("o", "i<space>", "iW", opts)
+keymap("x", "i<spcae>", "iW", noremap)
