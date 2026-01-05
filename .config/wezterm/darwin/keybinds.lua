@@ -28,7 +28,7 @@ function M.apply_to_config(config)
 		},
 		{
 			key = "w",
-			mods = "CTRL",
+			mods = "LEADER",
 			action = act.CloseCurrentPane({ confirm = true }),
 		},
 		{
@@ -93,9 +93,9 @@ function M.apply_to_config(config)
 		},
 	}
 
-	for i = 1, 8 do
+	for i = 1, 10 do
 		table.insert(config.keys, {
-			key = tostring(i),
+			key = tostring(i % 10),
 			mods = "CTRL",
 			action = act.ActivateTab(i - 1),
 		})
