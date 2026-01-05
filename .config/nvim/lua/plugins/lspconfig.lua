@@ -13,9 +13,10 @@ return {
 				analyses = {
 					unusedparams = true,
 				},
-				staticcheck = true,
+				staticcheck = false,
 				gofumpt = true,
 			},
+			golangci_lint_ls = {},
 		},
 		textdocument = {
 			completion = {
