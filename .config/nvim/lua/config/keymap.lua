@@ -4,18 +4,6 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 local noremap = { noremap = true }
 
-keymap("n", "i", "k")
-keymap("n", "k", "j")
-keymap("n", "j", "h")
-keymap("n", "h", "i")
-
-keymap("v", "i", "k")
-keymap("v", "k", "j")
-keymap("v", "j", "h")
-keymap("v", "h", "i")
-
-keymap("n", "<leader>/", ":<C-u nohlsearch<Return>")
-
 -- LSP
 keymap("n", "<leader>ll", vim.lsp.buf.definition, { desc = "Lsp Definition (builtin)" })
 keymap("n", "<leader>ln", vim.lsp.buf.rename, { desc = "Lsp Rename (builtin)" })
