@@ -7,9 +7,9 @@ alias hsc="history | tail -r | fzf | awk '{\$1=\"\"; print substr(\$0,2)}' | tr 
 alias fzfc="fzf | tr -d '\n' | pbcopy"
 alias encode_unix_time='function _encode_unix_time() { date -j -f "%Y-%m-%d %H:%M:%S" "$1" +"%s000"; }; _encode_unix_time'
 alias decode_unix_time='function _decode_unix_time() { date -r $(echo "$1 / 1000" | bc) +"%Y-%m-%d %H:%M:%S"; }; _decode_unix_time'
-alias vi="nvim"
-alias vim="nvim"
+alias v="nvim "
 alias lg="lazygit"
+alias cc="claude "
 
 # XDG
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -72,3 +72,7 @@ alias ls="eza -la --icons --git --time-style relative"
 
 # tmux
 bindkey -r "^S"
+
+export VISUAL="nvim"
+export EDITOR="nvim"
+
