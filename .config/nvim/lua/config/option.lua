@@ -12,3 +12,4 @@ vim.opt.cmdheight = 0
 vim.opt.eol = false
 vim.opt.fixeol = true
 vim.opt.swapfile = false
+vim.opt.cursorline = true
