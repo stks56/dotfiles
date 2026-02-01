@@ -76,3 +76,6 @@ bindkey -r "^S"
 export VISUAL="nvim"
 export EDITOR="nvim"
 
+# claude
+export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
+
