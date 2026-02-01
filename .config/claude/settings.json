@@ -1,0 +1,76 @@
+{
+  "cleanupPeriodDays": 30,
+  "env": {
+    "CLAUDE_CODE_AUTO_CONNECT_IDE": "false",
+    "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "true",
+    "CLAUDE_CODE_IDE_SKIP_VALID_CHECK": "true",
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "false",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "true",
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_TELEMETRY": "1",
+    "DISABLE_MICROCOMPACT": "1",
+    "MAX_THINKING_TOKENS": "31999"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(awk *)",
+      "Bash(cat *)",
+      "Bash(diff *)",
+      "Bash(fd *)",
+      "Bash(find *)",
+      "Bash(gh issue list *)",
+      "Bash(gh pr comment *)",
+      "Bash(gh pr diff *)",
+      "Bash(gh pr list *)",
+      "Bash(gh pr view *)",
+      "Bash(git diff *)",
+      "Bash(go build *)",
+      "Bash(go test *)",
+      "Bash(grep *)",
+      "Bash(less *)",
+      "Bash(ls *)",
+      "Bash(make *)",
+      "Bash(mkdir *)",
+      "Bash(python3 *)",
+      "Bash(rg *)",
+      "Bash(sed *)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:go.dev)",
+      "WebFetch(domain:pkg.go.dev)"
+    ],
+    "deny": [
+      "Bash(curl -fsSL *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git checkout *)",
+      "Bash(git push *)",
+      "Bash(git rebase *)",
+      "Bash(git reset *)",
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(terraform *)",
+      "Bash(terragrunt *)",
+      "Bash(wget *)",
+      "Write(*.enc*)",
+      "Write(*.gen*)",
+      "Write(.env*)",
+      "Read(*credential*)"
+    ],
+    "defaultMode": "plan"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "npx -y ccstatusline@latest",
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true
+  },
+  "language": "日本語",
+  "model": "opus"
+}
