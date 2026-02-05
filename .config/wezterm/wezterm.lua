@@ -63,5 +63,25 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	}
 end)
 
+local function is_claude(pane)
+	local process = pane:get_foreground_process_info()
+	if not process or not process.argv then
+		return false
+	end
+	-- 引数に"claude"が含まれているかチェック
+	for _, arg in ipairs(process.argv) do
+		if arg:find("claude") then
+			return true
+		end
+	end
+	return false
+end
+
+wezterm.on("bell", function(window, pane)
+	if is_claude(pane) then
+		window:toast_notification("Claude Code", "Task completed", nil, 4000)
+	end
+end)
+
 -- End configuration
 return config
