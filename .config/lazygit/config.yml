@@ -1,7 +1,7 @@
 git:
-  paging:
-    colorArg: never
-    pager: delta --dark --paging=never
+  pagers:
+    - colorArg: never
+      pager: delta --dark --paging=never
 commandLog:
   fileDiffCommand: "git diff --color=always {{parentSha}} {{targetSha}} -- {{filepath}} | delta --paging=never"
 os:
