@@ -7,7 +7,7 @@ return {
 				---@class sidekick.win.Opts
 				win = {
 					split = {
-						width = 0.5, -- set to 0 for default split width
+						width = 0.5, -- 0.x values mean percentages of the screen width
 					},
 				},
 			},
