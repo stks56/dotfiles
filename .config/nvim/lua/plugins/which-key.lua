@@ -25,6 +25,16 @@ return {
 			{ "<leader>l", group = "LSP (builtin)" },
 			{ "<leader>a", group = "AI/Claude Code (claudecode.nvim)" },
 			{ "<leader>b", group = "Basic others (auto-save)" },
+			{ "<leader>yy", ":CopyRelativeFilePath<CR>", desc = "Copy relative file path" },
+			{ "<leader>ya", ":CopyAbsoluteFilePath<CR>", desc = "Copy absolute file path" },
+			{ "<leader>yf", ":CopyFileName<CR>", desc = "Copy file name" },
+			{ "<leader>yd", ":CopyRelativeDirectoryPath<CR>", desc = "Copy relative directory path" },
+			{ "<leader>yl", ":CopyRelativeFilePathWithLine<CR>", desc = "Copy relative file path with line" },
+			{
+				"<leader>yc",
+				":CopyRelativeFilePathWithLineAndCol<CR>",
+				desc = "Copy relative file path with line and col",
+			},
 		})
 	end,
 	version = "*",
