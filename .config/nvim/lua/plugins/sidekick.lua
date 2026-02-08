@@ -10,6 +10,12 @@ return {
 						width = 0.5, -- 0.x values mean percentages of the screen width
 					},
 				},
+				prompts = {
+					ask = "ask me using AskUserQuestion tool",
+					-- default settings for prompts
+					-- temperature = 0.7,
+					-- max_tokens = 1000,
+				},
 			},
 		},
 		keys = {
