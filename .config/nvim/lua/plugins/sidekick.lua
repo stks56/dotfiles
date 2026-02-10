@@ -12,9 +12,10 @@ return {
 				},
 				prompts = {
 					ask = "ask me using AskUserQuestion tool",
+					plan = [[Create a task plan based on the following requirements. For abstract requirements, use the AskUserQuestion tool to ask the user questions and clarify them. Remember to use the create-persistence-plan skill to generate the plan file from the created plan.
+# What we want to do]],
 					-- default settings for prompts
 					-- temperature = 0.7,
-					-- max_tokens = 1000,
 				},
 			},
 		},
