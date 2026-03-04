@@ -34,7 +34,8 @@ export PATH="$HOME/.local/share/mise/shims:$PATH"
 
 # go
 export PATH="$(go env GOPATH)/bin:$PATH"
-export PATH=$PATH:$HOME/.local/share/mise/installs/go/latest/bin
+export GOFLAGS="-buildvcs=false"
+# export PATH=$PATH:$HOME/.local/share/mise/installs/go/latest/bin
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -73,9 +74,15 @@ alias ls="eza -la --icons --git --time-style relative"
 # tmux
 bindkey -r "^S"
 
+# editor
 export VISUAL="nvim"
 export EDITOR="nvim"
 
 # claude
 export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
 
+# private settings -----------------------------------
+# claude code percistent plan directory
+export CLAUDE_CODE_PLAN_DIR="$HOME/plan"
+
+. "$HOME/.local/bin/env"
