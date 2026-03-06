@@ -31,3 +31,6 @@ keymap("o", "x", "d", noremap)
 -- select innner word on space
 keymap("o", "i<space>", "iW", opts)
 keymap("x", "i<spcae>", "iW", noremap)
+
+-- terminal mode escape
+keymap("t", "<C-\\>", "<C-\\><C-n>", opts)
