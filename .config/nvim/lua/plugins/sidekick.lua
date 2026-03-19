@@ -2,6 +2,9 @@ return {
 	{
 		"folke/sidekick.nvim",
 		opts = {
+			nes = {
+				enabled = false,
+			},
 			cli = {
 				watch = true, -- notify Neovim of file changes done by AI CLI tools
 				---@class sidekick.win.Opts
@@ -9,11 +12,15 @@ return {
 					split = {
 						width = 0.5, -- 0.x values mean percentages of the screen width
 					},
+					keys = {
+						prompt = false,
+					},
 				},
 				prompts = {
 					ask = "ask me using AskUserQuestion tool",
-					plan = [[Create a task plan based on the following requirements. For abstract requirements, use the AskUserQuestion tool to ask the user questions and clarify them. Remember to use the create-persistence-plan skill to generate the plan file from the created plan.
-# What we want to do]],
+					plan = "Create a task plan based on the following requirements. For abstract requirements, use the AskUserQuestion tool to ask the user questions and clarify them. Remember to use the create-persistence-plan skill to generate the plan file from the created plan.\n# What we want to do",
+					fix = "You're export engineer, Fix {this} quickly",
+					review = "You're export engineer, Review {this} quickly",
 					-- default settings for prompts
 					-- temperature = 0.7,
 				},

@@ -7,7 +7,15 @@ return {
 	},
 	opts = {
 		servers = {
-			lua_ls = {},
+			lua_ls = {
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+					},
+				},
+			},
 			gopls = {
 				completeUnimported = true,
 				analyses = {
@@ -31,10 +39,9 @@ return {
 		},
 	},
 	config = function(_, opts)
-		local lspconfig = require("lspconfig")
 		for server, _ in pairs(opts.servers) do
-			-- config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-			lspconfig[server].setup(opts)
+			vim.lsp.config(server, opts.servers[server])
+			vim.lsp.enable(server)
 		end
 	end,
 	version = "*",

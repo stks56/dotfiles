@@ -22,6 +22,7 @@ return {
 				"go",
 				"gomod",
 				"typescript",
+				"c_sharp",
 			},
 			sync_install = false,
 			highlight = {
