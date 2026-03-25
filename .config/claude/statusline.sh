@@ -107,26 +107,25 @@ model=$(printf '%s' "$data" | jq -r '.model.display_name // "Claude"')
 
 parts=("$model")
 
-ctx=$(printf '%s' "$data" | jq -r '.context_window.used_percentage // empty')
-if [[ -n "$ctx" ]]; then
-  ctx_int=$(printf '%.0f' "$ctx")
-  parts+=("$(fmt 'ctx' "$ctx_int")")
-fi
+ctx=$(printf '%s' "$data" | jq -r '.context_window.used_percentage // 0')
+ctx_int=$(printf '%.0f' "$ctx")
+parts+=("$(fmt 'ctx' "$ctx_int")")
 
-five=$(printf '%s' "$data" | jq -r '.rate_limits.five_hour.used_percentage // empty')
-if [[ -n "$five" ]]; then
-  five_int=$(printf '%.0f' "$five")
-  five_resets=$(printf '%s' "$data" | jq -r '.rate_limits.five_hour.resets_at // empty')
-  five_label=$(elapsed_label "$five_resets" 18000 '5h')
-  parts+=("$(fmt "$five_label" "$five_int")")
-fi
+five=$(printf '%s' "$data" | jq -r '.rate_limits.five_hour.used_percentage // 0')
+five_int=$(printf '%.0f' "$five")
+five_resets=$(printf '%s' "$data" | jq -r '.rate_limits.five_hour.resets_at // empty')
+five_label=$(elapsed_label "$five_resets" 18000 '5h')
+parts+=("$(fmt "$five_label" "$five_int")")
 
-week=$(printf '%s' "$data" | jq -r '.rate_limits.seven_day.used_percentage // empty')
-if [[ -n "$week" ]]; then
-  week_int=$(printf '%.0f' "$week")
-  week_resets=$(printf '%s' "$data" | jq -r '.rate_limits.seven_day.resets_at // empty')
-  week_label=$(elapsed_label "$week_resets" 604800 '7d')
-  parts+=("$(fmt "$week_label" "$week_int")")
+week=$(printf '%s' "$data" | jq -r '.rate_limits.seven_day.used_percentage // 0')
+week_int=$(printf '%.0f' "$week")
+week_resets=$(printf '%s' "$data" | jq -r '.rate_limits.seven_day.resets_at // empty')
+week_label=$(elapsed_label "$week_resets" 604800 '7d')
+parts+=("$(fmt "$week_label" "$week_int")")
+
+session_id=$(printf '%s' "$data" | jq -r '.session_id // empty')
+if [[ -n "$session_id" ]]; then
+  parts+=("$(printf '%b%s%b' "$DIM" "$session_id" "$R")")
 fi
 
 sep=$(printf '%b' "${DIM}│${R}")
