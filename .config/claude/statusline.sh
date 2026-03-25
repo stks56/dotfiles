@@ -39,10 +39,65 @@ bar() {
   printf '%s' "$b"
 }
 
+parse_epoch() {
+  local val=$1
+  # If it's already a number (unix epoch), return as-is
+  if [[ "$val" =~ ^[0-9]+$ ]]; then
+    printf '%s' "$val"
+    return
+  fi
+  # Otherwise parse as ISO8601
+  if date --version &>/dev/null; then
+    date -d "$val" +%s 2>/dev/null
+  else
+    local stripped="${val%%.*}"
+    date -juf '%Y-%m-%dT%H:%M:%SZ' "${stripped}Z" +%s 2>/dev/null \
+      || date -jf '%Y-%m-%dT%H:%M:%S' "$stripped" +%s 2>/dev/null
+  fi
+}
+
+fmt_duration() {
+  local secs=$1
+  (( secs < 0 )) && secs=0
+  local d=$(( secs / 86400 ))
+  local h=$(( (secs % 86400) / 3600 ))
+  local m=$(( (secs % 3600) / 60 ))
+  if (( d > 0 )); then
+    printf '%dd%dh' "$d" "$h"
+  elif (( h > 0 )); then
+    printf '%dh%dm' "$h" "$m"
+  else
+    printf '%dm' "$m"
+  fi
+}
+
+elapsed_label() {
+  local resets_at=$1
+  local total_secs=$2
+  local denom=$3
+  if [[ -z "$resets_at" ]]; then
+    printf '%s' "$denom"
+    return
+  fi
+  local epoch
+  epoch=$(parse_epoch "$resets_at")
+  if [[ -z "$epoch" ]]; then
+    printf '%s' "$denom"
+    return
+  fi
+  local now remaining elapsed
+  now=$(date +%s)
+  remaining=$(( epoch - now ))
+  (( remaining < 0 )) && remaining=0
+  elapsed=$(( total_secs - remaining ))
+  (( elapsed < 0 )) && elapsed=0
+  printf '%s/%s' "$(fmt_duration "$elapsed")" "$denom"
+}
+
 fmt() {
   local label=$1
   local pct=$2
-  local p=$(( (pct + 0) ))  # already integer from jq
+  local p=$(( (pct + 0) ))
   printf '%s %s%s %d%%%b' "$label" "$(gradient "$pct")" "$(bar "$pct")" "$p" "$R"
 }
 
@@ -61,13 +116,17 @@ fi
 five=$(printf '%s' "$data" | jq -r '.rate_limits.five_hour.used_percentage // empty')
 if [[ -n "$five" ]]; then
   five_int=$(printf '%.0f' "$five")
-  parts+=("$(fmt '5h' "$five_int")")
+  five_resets=$(printf '%s' "$data" | jq -r '.rate_limits.five_hour.resets_at // empty')
+  five_label=$(elapsed_label "$five_resets" 18000 '5h')
+  parts+=("$(fmt "$five_label" "$five_int")")
 fi
 
 week=$(printf '%s' "$data" | jq -r '.rate_limits.seven_day.used_percentage // empty')
 if [[ -n "$week" ]]; then
   week_int=$(printf '%.0f' "$week")
-  parts+=("$(fmt '7d' "$week_int")")
+  week_resets=$(printf '%s' "$data" | jq -r '.rate_limits.seven_day.resets_at // empty')
+  week_label=$(elapsed_label "$week_resets" 604800 '7d')
+  parts+=("$(fmt "$week_label" "$week_int")")
 fi
 
 sep=$(printf '%b' "${DIM}│${R}")
