@@ -49,6 +49,14 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".claude" = {
+			source = .config/claude;
+			recursive = true;
+		};
+    ".config/karabiner".source = .config/karabiner;
+    ".config/lazygit".source = .config/lazygit;
+    ".config/nvim".source = .config/nvim;
+    ".config/tmux".source = .config/tmux;
   };
 
   # Home Manager can also manage your environment variables through
