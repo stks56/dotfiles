@@ -42,6 +42,10 @@
     pkgs.lazygit
     pkgs.neovim
     pkgs.ripgrep
+
+		# nix language
+		pkgs.nixd
+		pkgs.nixfmt
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
