@@ -17,6 +17,7 @@ return {
 			go = { "gofumpt", "goimports", lsp_format = "first" },
 			json = { "jq" },
 			-- yaml = { "yamlfmt" },
+			nix = { "nixfmt" },
 		},
 		format_on_save = {
 			timeout_ms = 5000,

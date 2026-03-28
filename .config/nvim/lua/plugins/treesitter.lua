@@ -23,6 +23,7 @@ return {
 				"gomod",
 				"typescript",
 				"c_sharp",
+				"nix",
 			},
 			sync_install = false,
 			highlight = {

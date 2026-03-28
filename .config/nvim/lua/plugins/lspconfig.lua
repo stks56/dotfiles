@@ -25,6 +25,7 @@ return {
 				gofumpt = true,
 			},
 			golangci_lint_ls = {},
+			nixd = {},
 		},
 		textdocument = {
 			completion = {
