@@ -43,6 +43,10 @@
     pkgs.neovim
     pkgs.ripgrep
 
+		# lua language
+		pkgs.lua-language-server
+		pkgs.stylua
+
 		# nix language
 		pkgs.nixd
 		pkgs.nixfmt
