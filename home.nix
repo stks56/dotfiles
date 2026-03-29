@@ -37,19 +37,19 @@
 
     # user
     pkgs.delta
-		pkgs.gh
+    pkgs.gh
     pkgs.git
     pkgs.lazygit
     pkgs.neovim
     pkgs.ripgrep
 
-		# lua language
-		pkgs.lua-language-server
-		pkgs.stylua
+    # lua language
+    pkgs.lua-language-server
+    pkgs.stylua
 
-		# nix language
-		pkgs.nixd
-		pkgs.nixfmt
+    # nix language
+    pkgs.nixd
+    pkgs.nixfmt
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -66,9 +66,9 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
     ".claude" = {
-			source = .config/claude;
-			recursive = true;
-		};
+      source = .config/claude;
+      recursive = true;
+    };
     ".config/karabiner".source = .config/karabiner;
     ".config/lazygit".source = .config/lazygit;
     ".config/nvim".source = .config/nvim;
