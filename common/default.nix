@@ -42,11 +42,6 @@
     # c language
     pkgs.clang
 
-    # go language
-    pkgs.go
-    pkgs.gopls
-    pkgs.golangci-lint
-
     # lua language
     pkgs.lua-language-server
     pkgs.stylua
@@ -99,9 +94,11 @@
   imports = [
     ./claude-code.nix
     ./fzf.nix
+    ./go.nix
     ./starship.nix
     ./zsh.nix
     ./atuin.nix
+    ./go.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
