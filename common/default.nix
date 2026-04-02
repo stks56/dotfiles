@@ -24,14 +24,28 @@
     # '')
 
     # user
-    pkgs.clang
+    pkgs.bat
     pkgs.delta
+    pkgs.eza
+    pkgs.fd
     pkgs.gh
     pkgs.git
+    pkgs.google-cloud-sdk
     pkgs.jq
+    pkgs.kubectl
     pkgs.lazygit
     pkgs.neovim
     pkgs.ripgrep
+    pkgs.rtk
+    pkgs.wget
+
+    # c language
+    pkgs.clang
+
+    # go language
+    pkgs.go
+    pkgs.gopls
+    pkgs.golangci-lint
 
     # lua language
     pkgs.lua-language-server
