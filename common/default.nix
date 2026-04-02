@@ -28,6 +28,7 @@
     pkgs.delta
     pkgs.gh
     pkgs.git
+    pkgs.jq
     pkgs.lazygit
     pkgs.neovim
     pkgs.ripgrep
