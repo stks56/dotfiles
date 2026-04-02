@@ -85,7 +85,8 @@
   #  /etc/profiles/per-user/nixos/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    VISUAL = "nvim";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.
