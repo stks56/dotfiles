@@ -28,6 +28,7 @@
     pkgs.delta
     pkgs.eza
     pkgs.fd
+    pkgs.fzf
     pkgs.gh
     pkgs.git
     pkgs.google-cloud-sdk
@@ -94,11 +95,8 @@
 
   imports = [
     ./claude-code.nix
-    ./fzf.nix
     ./go.nix
-    ./starship.nix
     ./zsh.nix
-    ./atuin.nix
     ./go.nix
   ];
 
