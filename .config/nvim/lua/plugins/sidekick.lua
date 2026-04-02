@@ -100,13 +100,6 @@ return {
 				mode = { "n", "x" },
 				desc = "Sidekick Select Prompt",
 			},
-			{
-				"<leader>ac",
-				function()
-					require("sidekick.cli").toggle({ name = "claude", focus = true })
-				end,
-				desc = "Sidekick Toggle Claude",
-			},
 		},
 	},
 }
