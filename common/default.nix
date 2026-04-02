@@ -35,7 +35,6 @@
     pkgs.jq
     pkgs.kubectl
     pkgs.lazygit
-    pkgs.neovim
     pkgs.ripgrep
     pkgs.rtk
     pkgs.wget
@@ -66,7 +65,6 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
     ".config/lazygit".source = ../.config/lazygit;
-    ".config/nvim".source = ../.config/nvim;
   };
 
   # Home Manager can also manage your environment variables through
@@ -96,8 +94,8 @@
   imports = [
     ./claude-code.nix
     ./go.nix
+    ./neovim.nix
     ./zsh.nix
-    ./go.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
