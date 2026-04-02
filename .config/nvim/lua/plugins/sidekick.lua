@@ -3,7 +3,7 @@ return {
 		"folke/sidekick.nvim",
 		opts = {
 			nes = {
-				enabled = false,
+				enabled = true,
 			},
 			cli = {
 				watch = true, -- notify Neovim of file changes done by AI CLI tools
