@@ -89,6 +89,7 @@
     ./fzf.nix
     ./starship.nix
     ./zsh.nix
+    ./atuin.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

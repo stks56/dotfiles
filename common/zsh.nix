@@ -19,13 +19,5 @@
         v = "nvim";
       };
     };
-
-    initContent = ''
-      if [ -x "$(command -v fzf)" ]; then
-        # Resolve conflict: zsh-abbr overwrites Ctrl-R.
-        source <(fzf --zsh)
-        bindkey '^R' fzf-history-widget
-      fi
-    '';
   };
 }
