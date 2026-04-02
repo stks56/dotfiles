@@ -54,10 +54,6 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".claude" = {
-      source = ../.config/claude;
-      recursive = true;
-    };
     ".config/lazygit".source = ../.config/lazygit;
     ".config/nvim".source = ../.config/nvim;
   };
@@ -86,6 +82,7 @@
   programs.home-manager.enable = true;
 
   imports = [
+    ./claude-code.nix
     ./fzf.nix
     ./starship.nix
     ./zsh.nix
