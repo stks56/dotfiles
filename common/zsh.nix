@@ -35,6 +35,7 @@
         #   format = "[\\\[$time\\\]]($style)";
         #   time_format = "%T";
         # };
+        gcloud.format = "on [$symbol($project)]($style) ";
       };
     };
 
