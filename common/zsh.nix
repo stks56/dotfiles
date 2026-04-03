@@ -39,6 +39,9 @@
     atuin = {
       enable = true;
       enableZshIntegration = true;
+      settings = {
+        keymap_mode = "emacs";
+      };
     };
   };
 }
