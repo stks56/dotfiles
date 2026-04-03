@@ -8,21 +8,36 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-claude-code = {
+      url = "github:ryoppippi/nix-claude-code";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }:
+    {
+      nixpkgs,
+      home-manager,
+      nix-claude-code,
+      ...
+    }:
     {
       homeConfigurations = {
         "wslnix" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            overlays = [ nix-claude-code.overlays.default ];
+          };
           modules = [
             ./hosts/wslnix/default.nix
           ];
         };
 
         "darwin" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          pkgs = import nixpkgs {
+            system = "aarch64-darwin";
+            overlays = [ nix-claude-code.overlays.default ];
+          };
           modules = [
             ./hosts/darwin/default.nix
           ];

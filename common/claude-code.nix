@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 let
   mkLink =
@@ -6,9 +6,9 @@ let
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/.config/claude/${path}";
 in
 {
-  programs.claude-code = {
-    enable = true;
-  };
+  home.packages = [
+    pkgs.claude-code
+  ];
 
   home.file = {
     ".claude/settings.json".source = mkLink "settings.json";
