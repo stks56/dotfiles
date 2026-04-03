@@ -36,12 +36,12 @@ git clone https://github.com/stks56/dotfiles.git && cd dotfiles
 
 3. run
 ```sh
-nix run home-manager/master -- switch --flake .#darwin
+nix run home-manager/master -- switch --flake .#darwin --impure
 ```
 
 usually...
 
 ```sh
-home-manager switch --flake .#darwin
+home-manager switch --flake .#darwin --impure
 ```
 
