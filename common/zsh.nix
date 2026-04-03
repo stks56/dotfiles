@@ -27,6 +27,7 @@
       enableZshIntegration = true;
 
       settings = {
+        add_newline = false;
         # format = "$time" + "$all";
         # time = {
         #   disabled = false;
