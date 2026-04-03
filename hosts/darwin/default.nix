@@ -33,6 +33,7 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
     ".config/karabiner".source = ../../.config/karabiner;
+    ".config/wezterm".source = ../../.config/wezterm;
   };
 
   # Home Manager can also manage your environment variables through
