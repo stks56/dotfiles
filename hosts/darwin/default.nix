@@ -1,10 +1,10 @@
-{ pkgs, ... }:
-
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   # home.username = "nixos";
   # home.homeDirectory = "/home/nixos";
+  home.username = builtins.getEnv "USER";
+  home.homeDirectory = builtins.getEnv "HOME";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -32,7 +32,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".config/karabiner".source = .config/karabiner;
+    ".config/karabiner".source = ../../.config/karabiner;
   };
 
   # Home Manager can also manage your environment variables through
