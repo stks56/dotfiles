@@ -7,6 +7,7 @@
       highlight = "fg=6";
     };
     syntaxHighlighting.enable = true;
+    defaultKeymap = "emacs";
 
     zsh-abbr = {
       enable = true;
@@ -40,6 +41,9 @@
     atuin = {
       enable = true;
       enableZshIntegration = true;
+      flags = [
+        "--disable-up-arrow"
+      ];
       settings = {
         keymap_mode = "emacs";
       };
