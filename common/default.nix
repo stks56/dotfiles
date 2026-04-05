@@ -93,6 +93,7 @@
 
   imports = [
     ./claude-code.nix
+    ./git-repository.nix
     ./go.nix
     ./neovim.nix
     ./zsh.nix
