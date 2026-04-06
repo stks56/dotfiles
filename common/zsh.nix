@@ -9,6 +9,18 @@
     syntaxHighlighting.enable = true;
     defaultKeymap = "emacs";
 
+    initContent = ''
+      _tab_or_complete() {
+        if [[ -n "$POSTDISPLAY" ]]; then
+          zle autosuggest-accept
+        else
+          zle expand-or-complete
+        fi
+      }
+      zle -N _tab_or_complete
+      bindkey '\t' _tab_or_complete
+    '';
+
     zsh-abbr = {
       enable = true;
       abbreviations = {
