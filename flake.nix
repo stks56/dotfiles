@@ -23,23 +23,23 @@
     }:
     {
       homeConfigurations = {
-        "wslnix" = home-manager.lib.homeManagerConfiguration {
+        "elmin" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             system = "x86_64-linux";
             overlays = [ nix-claude-code.overlays.default ];
           };
           modules = [
-            ./hosts/wslnix/default.nix
+            ./hosts/elmin/default.nix
           ];
         };
 
-        "darwin" = home-manager.lib.homeManagerConfiguration {
+        "unizm" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             system = "aarch64-darwin";
             overlays = [ nix-claude-code.overlays.default ];
           };
           modules = [
-            ./hosts/darwin/default.nix
+            ./hosts/unizm/default.nix
           ];
         };
       };

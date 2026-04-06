@@ -2,7 +2,7 @@
 
 # usage
 
-## wslnix
+## elmin(wslnix)
 
 1. clone this
 
@@ -12,15 +12,15 @@ git clone https://github.com/stks56/dotfiles.git && cd dotfiles
 
 2. run
 ```sh
-nix run home-manager/master -- switch --flake .#wslnix
+nix run home-manager/master -- switch --flake .#elmin
 ```
 
 3. everytime
 ```sh
-home-manager switch --flake .#wslnix
+home-manager switch --flake .#elmin
 ```
 
-## darwin
+## unizm(darwin)
 
 1. install home-manager
 
@@ -36,12 +36,12 @@ git clone https://github.com/stks56/dotfiles.git && cd dotfiles
 
 3. run
 ```sh
-nix run home-manager/master -- switch --flake .#darwin --impure
+nix run home-manager/master -- switch --flake .#unizm --impure
 ```
 
 usually...
 
 ```sh
-home-manager switch --flake .#darwin --impure
+home-manager switch --flake .#unizm --impure
 ```
 
