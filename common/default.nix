@@ -39,9 +39,6 @@
     pkgs.rtk
     pkgs.wget
 
-    # c language
-    pkgs.clang
-
     # lua language
     pkgs.lua-language-server
     pkgs.stylua
