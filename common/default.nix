@@ -35,6 +35,7 @@
     pkgs.jq
     pkgs.kubectl
     pkgs.lazygit
+    pkgs.nodejs
     pkgs.ripgrep
     pkgs.rtk
     pkgs.wget
