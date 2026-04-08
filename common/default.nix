@@ -90,6 +90,8 @@
 
   imports = [
     ./claude-code.nix
+    ./codex-cli.nix
+    ./gemini-cli.nix
     ./git-repository.nix
     ./go.nix
     ./neovim.nix
