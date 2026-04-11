@@ -47,6 +47,20 @@
           ];
         };
 
+        "orpar" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            overlays = [
+              nix-claude-code.overlays.default
+              nix-codex-cli.overlays.default
+              nix-gemini-cli.overlays.default
+            ];
+          };
+          modules = [
+            ./hosts/orpar/default.nix
+          ];
+        };
+
         "unizm" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             system = "aarch64-darwin";
