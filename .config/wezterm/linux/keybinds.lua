@@ -101,6 +101,14 @@ function M.apply_to_config(config)
 			action = act.PaneSelect,
 		},
 	}
+
+	for i = 1, 10 do
+		table.insert(config.keys, {
+			key = tostring(i % 10),
+			mods = "CTRL",
+			action = act.ActivateTab(i - 1),
+		})
+	end
 end
 
 return M
