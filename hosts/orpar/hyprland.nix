@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 let
   terminal = "wezterm";
@@ -116,46 +116,45 @@ in
         sensitivity = -0.5;
       };
 
-      bind =
-        [
-          "${mainMod}, C, killactive,"
-          "${mainMod}, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"
-          "${mainMod}, V, togglefloating,"
-          "${mainMod}, P, pseudo,"
-          # Application
-          "${mainMod} SHIFT, Q, exec, ${terminal}"
-          "${mainMod}, Q, focuswindow, class:^.*${terminal}$"
-          "${mainMod}, Q, layoutmsg, swapwithmaster ignoremaster"
-          "${mainMod} SHIFT, B, exec, ${browser}"
-          "${mainMod}, B, focuswindow, class:^.*${browser}$"
-          "${mainMod}, B, layoutmsg, swapwithmaster ignoremaster"
-          "${mainMod}, W, exec, waypaper"
-          # Tiling
-          "${mainMod}, Return, layoutmsg, swapwithmaster"
-          "${mainMod}, Tab, layoutmsg, cyclenext"
-          "${mainMod} SHIFT, Tab, layoutmsg, cycleprev"
-          # Move focus
-          "${mainMod}, H, movefocus, l"
-          "${mainMod}, L, movefocus, r"
-          "${mainMod}, K, movefocus, u"
-          "${mainMod}, J, movefocus, d"
-        ]
-        # Workspace 1-10
-        ++ (builtins.genList (
-          i: "${mainMod}, ${toString (if i == 9 then 0 else i + 1)}, workspace, ${toString (i + 1)}"
-        ) 10)
-        ++ (builtins.genList (
-          i:
-          "${mainMod} SHIFT, ${toString (if i == 9 then 0 else i + 1)}, movetoworkspace, ${toString (i + 1)}"
-        ) 10)
-        ++ [
-          # Special workspace
-          "${mainMod}, S, togglespecialworkspace, magic"
-          "${mainMod} SHIFT, S, movetoworkspace, special:magic"
-          # Mouse
-          "${mainMod}, mouse_down, workspace, e+1"
-          "${mainMod}, mouse_up, workspace, e-1"
-        ];
+      bind = [
+        "${mainMod}, C, killactive,"
+        "${mainMod}, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"
+        "${mainMod}, V, togglefloating,"
+        "${mainMod}, P, pseudo,"
+        # Application
+        "${mainMod} SHIFT, Q, exec, ${terminal}"
+        "${mainMod}, Q, focuswindow, class:^.*${terminal}$"
+        "${mainMod}, Q, layoutmsg, swapwithmaster ignoremaster"
+        "${mainMod} SHIFT, B, exec, ${browser}"
+        "${mainMod}, B, focuswindow, class:^.*${browser}$"
+        "${mainMod}, B, layoutmsg, swapwithmaster ignoremaster"
+        "${mainMod}, W, exec, waypaper"
+        # Tiling
+        "${mainMod}, Return, layoutmsg, swapwithmaster"
+        "${mainMod}, Tab, layoutmsg, cyclenext"
+        "${mainMod} SHIFT, Tab, layoutmsg, cycleprev"
+        # Move focus
+        "${mainMod}, H, movefocus, l"
+        "${mainMod}, L, movefocus, r"
+        "${mainMod}, K, movefocus, u"
+        "${mainMod}, J, movefocus, d"
+      ]
+      # Workspace 1-10
+      ++ (builtins.genList (
+        i: "${mainMod}, ${toString (if i == 9 then 0 else i + 1)}, workspace, ${toString (i + 1)}"
+      ) 10)
+      ++ (builtins.genList (
+        i:
+        "${mainMod} SHIFT, ${toString (if i == 9 then 0 else i + 1)}, movetoworkspace, ${toString (i + 1)}"
+      ) 10)
+      ++ [
+        # Special workspace
+        "${mainMod}, S, togglespecialworkspace, magic"
+        "${mainMod} SHIFT, S, movetoworkspace, special:magic"
+        # Mouse
+        "${mainMod}, mouse_down, workspace, e+1"
+        "${mainMod}, mouse_up, workspace, e-1"
+      ];
 
       bindm = [
         "${mainMod}, mouse:272, movewindow"
@@ -203,15 +202,4 @@ in
       ];
     };
   };
-
-  programs.waybar.enable = true;
-
-  xdg.configFile."waybar/config.jsonc".source = ../../.config/waybar/config.jsonc;
-  xdg.configFile."waybar/style.css".source = ../../.config/waybar/style.css;
-  xdg.configFile."waypaper/config.ini".source = pkgs.replaceVars ../../.config/waypaper/config.ini {
-    homeDirectory = config.home.homeDirectory;
-  };
-  xdg.configFile."waypaper/style.css".source = ../../.config/waypaper/style.css;
-  xdg.configFile."hypr/hyprpaper.conf".source = ../../.config/hypr/hyprpaper.conf;
-  xdg.configFile."hypr/wallpapers".source = ../../.config/hypr/wallpapers;
 }
