@@ -15,5 +15,6 @@
     homeDirectory = config.home.homeDirectory;
   };
   xdg.configFile."waypaper/style.css".source = ../../.config/waypaper/style.css;
+  xdg.configFile."hypr/hyprpaper.conf".source = ../../.config/hypr/hyprpaper.conf;
   xdg.configFile."hypr/wallpapers".source = ../../.config/hypr/wallpapers;
 }
