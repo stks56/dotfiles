@@ -93,8 +93,9 @@
           spacing = 10;
         };
         clock = {
+          interval = 1;
+          format = "{:%Y-%m-%d %H:%M:%S}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-          format-alt = "{:%Y-%m-%d %H:%I:%S}";
         };
         cpu = {
           format = "{usage}% ";
