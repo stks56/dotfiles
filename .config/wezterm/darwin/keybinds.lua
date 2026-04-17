@@ -87,6 +87,16 @@ function M.apply_to_config(config)
 			action = act.PaneSelect({ mode = "SwapWithActive" }),
 		},
 		{
+			key = "[",
+			mods = "LEADER",
+			action = act.MoveTabRelative(-1),
+		},
+		{
+			key = "]",
+			mods = "LEADER",
+			action = act.MoveTabRelative(1),
+		},
+		{
 			key = "s",
 			mods = "CTRL",
 			action = wezterm.action.DisableDefaultAssignment,
