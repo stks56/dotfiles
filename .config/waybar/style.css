@@ -1,36 +1,23 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: sans-serif, "Font Awesome 7 Free", "Font Awesome 7 Brands";
-    font-size: 12px;
+    font-size: 14px;
 }
 
 window#waybar {
-    background-color: rgba(46, 52, 64, 0.8);
-    border-bottom: 3px solid rgba(76, 86, 106, 0.5);
+    background-color: transparent;
+    border-bottom: none;
     color: #D8DEE9;
     transition-property: background-color;
     transition-duration: .5s;
 }
-
-window#waybar.hidden {
-    opacity: 0.2;
-}
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #ECEFF4;
-}
-*/
 
 button {
     /* Use box-shadow instead of border so the text isn't offset */
     /* box-shadow: inset 0 -3px transparent; */
     /* Avoid rounded borders under each button name */
     border: none;
-    border-radius: 0;
+		border-radius: 0;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
@@ -85,7 +72,10 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
+    margin: 5px 0;
     padding: 0 10px;
+    border: 1px solid #2E3440;
+		border-radius: 20px;
     color: #D8DEE9;
 }
 
@@ -105,7 +95,7 @@ button:hover {
 }
 
 #clock {
-    background-color: #5E81AC;
+    background-color: #4C566A;
 }
 
 #battery {

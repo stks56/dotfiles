@@ -6,6 +6,7 @@
     settings = {
       mainBar = {
         height = 30;
+        margin-bottom = -20;
         spacing = 4;
         modules-left = [
           "hyprland/workspaces"
