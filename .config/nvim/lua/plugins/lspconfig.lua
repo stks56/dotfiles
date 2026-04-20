@@ -7,15 +7,7 @@ return {
 	},
 	opts = {
 		servers = {
-			lua_ls = {
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { "vim" },
-						},
-					},
-				},
-			},
+			copilot = {},
 			gopls = {
 				completeUnimported = true,
 				analyses = {
@@ -25,6 +17,15 @@ return {
 				gofumpt = true,
 			},
 			golangci_lint_ls = {},
+			lua_ls = {
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+					},
+				},
+			},
 			nixd = {},
 		},
 		textdocument = {
