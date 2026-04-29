@@ -16,72 +16,108 @@ config.font = wezterm.font_with_fallback({
 	"Menlo",
 })
 
--- session manager
-local session_manager = require("session-manager")
-wezterm.on("save_session", function(window)
-	session_manager.save_state(window)
-end)
-wezterm.on("load_session", function(window)
-	session_manager.load_state(window)
-end)
-wezterm.on("restore_session", function(window)
-	session_manager.restore_state(window)
-end)
-
--- debug
+-- Debug
 config.debug_key_events = true
-
--- Key binding
-local keybinds = {}
-if wezterm.target_triple:find("darwin") then
-	keybinds = require("darwin.keybinds")
-else
-	keybinds = require("linux.keybinds")
-end
-
-keybinds.apply_to_config(config)
-
 config.status_update_interval = 100
 
-local tab_color_schema = {
-	Idle = "#4a5568", -- グレー（待機中）
-	Run = "#38a169", -- グリーン（実行中）
-	Sleep = "#3182ce", -- ブルー（スリープ中）
-	Stop = "#e53e3e", -- レッド（停止中）
-	Zombie = "#d69e2e", -- イエロー（ゾンビプロセス）
-	Tracing = "#805ad5", -- パープル（トレース中）
-	Dead = "#2d3748", -- ダークグレー（終了）
-}
-
-function basename(s)
-	return string.gsub(s, "(.*[/\\])(.*)", "%2")
-end
-
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+-- Tab
+wezterm.on("format-tab-title", function(tab)
 	return {
 		{ Text = " " .. tab.tab_index + 1 .. ":" },
 	}
 end)
 
-local function is_claude(pane)
-	local process = pane:get_foreground_process_info()
-	if not process or not process.argv then
-		return false
-	end
-	-- 引数に"claude"が含まれているかチェック
-	for _, arg in ipairs(process.argv) do
-		if arg:find("claude") then
-			return true
-		end
-	end
-	return false
-end
+-- keyBinds
+-- config.disable_default_key_bindings = true
 
-wezterm.on("bell", function(window, pane)
-	if is_claude(pane) then
-		window:toast_notification("Claude Code", "Task completed", nil, 4000)
-	end
-end)
+local act = wezterm.action
+
+config.leader = {
+	key = "s",
+	mods = "CTRL",
+	timeout_milliseconds = 1000,
+}
+
+config.keys = {
+	{
+		key = "Tab",
+		mods = "CTRL",
+		action = act.ActivatePaneDirection("Next"),
+	},
+	{
+		key = "t",
+		mods = "LEADER",
+		action = act.SpawnTab("CurrentPaneDomain"),
+	},
+	{
+		key = "w",
+		mods = "LEADER",
+		action = act.CloseCurrentPane({ confirm = true }),
+	},
+	{
+		key = "z",
+		mods = "LEADER",
+		action = act.TogglePaneZoomState,
+	},
+	{
+		key = "'",
+		mods = "CTRL",
+		action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key = '"',
+		mods = "CTRL|SHIFT",
+		action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key = "h",
+		mods = "LEADER",
+		action = act.AdjustPaneSize({ "Left", 5 }),
+	},
+	{
+		key = "j",
+		mods = "LEADER",
+		action = act.AdjustPaneSize({ "Down", 5 }),
+	},
+	{
+		key = "k",
+		mods = "LEADER",
+		action = act.AdjustPaneSize({ "Up", 5 }),
+	},
+	{
+		key = "l",
+		mods = "LEADER",
+		action = act.AdjustPaneSize({ "Right", 5 }),
+	},
+	{
+		key = "m",
+		mods = "LEADER",
+		action = act.PaneSelect,
+	},
+	{
+		key = "[",
+		mods = "LEADER",
+		action = act.MoveTabRelative(-1),
+	},
+	{
+		key = "]",
+		mods = "LEADER",
+		action = act.MoveTabRelative(1),
+	},
+	{
+		key = "s",
+		mods = "CTRL",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+}
+
+for i = 1, 10 do
+	table.insert(config.keys, {
+		key = tostring(i % 10),
+		mods = "CTRL",
+		action = act.ActivateTab(i - 1),
+	})
+end
 
 -- End configuration
 return config
