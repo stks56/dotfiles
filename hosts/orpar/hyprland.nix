@@ -101,7 +101,6 @@ in
 
       input = {
         kb_layout = "us";
-        kb_options = "altwin:swap_alt_win";
         follow_mouse = 1;
         sensitivity = 0;
         touchpad = {
@@ -122,9 +121,9 @@ in
         "${mainMod}, V, togglefloating,"
         "${mainMod}, P, pseudo,"
         # Application
-        "${mainMod} SHIFT, Q, exec, ${terminal}"
-        "${mainMod}, Q, focuswindow, class:^.*${terminal}$"
-        "${mainMod}, Q, layoutmsg, swapwithmaster ignoremaster"
+        "${mainMod} SHIFT, T, exec, ${terminal}"
+        "${mainMod}, T, focuswindow, class:^.*${terminal}$"
+        "${mainMod}, T, layoutmsg, swapwithmaster ignoremaster"
         "${mainMod} SHIFT, B, exec, ${browser}"
         "${mainMod}, B, focuswindow, class:^.*${browser}$"
         "${mainMod}, B, layoutmsg, swapwithmaster ignoremaster"
