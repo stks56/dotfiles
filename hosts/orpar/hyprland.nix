@@ -127,6 +127,9 @@ in
         "${mainMod} SHIFT, B, exec, ${browser}"
         "${mainMod}, B, focuswindow, class:^.*${browser}$"
         "${mainMod}, B, layoutmsg, swapwithmaster ignoremaster"
+        "${mainMod} SHIFT, U, exec, steam"
+        "${mainMod}, U, focuswindow, class:^.*steam$"
+        "${mainMod}, U, layoutmsg, swapwithmaster ignoremaster"
         "${mainMod}, W, exec, waypaper"
         # Tiling
         "${mainMod}, Return, layoutmsg, swapwithmaster"
