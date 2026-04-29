@@ -14,6 +14,7 @@ in
       monitor = ",highres,auto,auto";
 
       exec-once = [
+        "elephant"
         "waybar"
         "waypaper --restore"
       ];

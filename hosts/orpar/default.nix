@@ -5,6 +5,7 @@
     ../../common
     ./fcitx5.nix
     ./hyprland.nix
+    ./walker.nix
     ./waybar.nix
     ./waypaper.nix
   ];
