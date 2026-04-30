@@ -39,6 +39,7 @@
     pkgs.nodejs
     pkgs.ripgrep
     pkgs.rtk
+    pkgs.tree-sitter
     pkgs.wget
 
     # lua language
