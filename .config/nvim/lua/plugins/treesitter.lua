@@ -20,6 +20,8 @@ return {
 				"javascript",
 				"json",
 				"lua",
+				"markdown",
+				"markdown_inline",
 				"nix",
 				"query",
 				"typescript",
