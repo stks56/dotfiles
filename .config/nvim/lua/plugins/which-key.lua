@@ -22,7 +22,6 @@ return {
 			{ "<leader>v", group = "View (Noneck)" },
 			{ "<leader>t", group = "Tests (neotest)" },
 			{ "<leader>y", group = "Yanks (user command)" },
-			{ "<leader>l", group = "LSP (builtin)" },
 			{ "<leader>a", group = "AI/Claude Code (claudecode.nvim)" },
 			{ "<leader>b", group = "Basic others" },
 			{ "<leader>yy", ":CopyRelativeFilePath<CR>", desc = "Copy relative file path" },
