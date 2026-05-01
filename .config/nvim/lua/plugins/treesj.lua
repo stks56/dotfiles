@@ -16,7 +16,6 @@ return {
 			desc = "Toggle recursive splitting/joining blocks (treesj)",
 		},
 	},
-	dependencies = { "nvim-treesitter/nvim-treesitter" },
 	opts = {},
 	version = "*",
 }
