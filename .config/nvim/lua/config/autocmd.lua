@@ -63,3 +63,28 @@ end, { nargs = 0, force = true, desc = "Copy relative file path with line to the
 vim.api.nvim_create_user_command("CopyRelativeFilePathWithLineAndCol", function()
 	copy_to_clipboard(format_path(":.") .. ":" .. vim.fn.line(".") .. ":" .. vim.fn.col("."))
 end, { nargs = 0, force = true, desc = "Copy relative file path with line and col to the clipboard" })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = {
+		"c",
+		"c_sharp",
+		"elixir",
+		"go",
+		"gomod",
+		"heex",
+		"html",
+		"javascript",
+		"json",
+		"lua",
+		"markdown",
+		"markdown_inline",
+		"nix",
+		"query",
+		"typescript",
+		"vim",
+		"vimdoc",
+	},
+	callback = function()
+		vim.treesitter.start()
+	end,
+})
