@@ -1,5 +1,6 @@
 return {
 	"folke/trouble.nvim",
+	branch = "main",
 	opts = { auto_focus = true },
 	cmd = "Trouble",
 	keys = {
@@ -34,5 +35,4 @@ return {
 			desc = "Quickfix List (Trouble)",
 		},
 	},
-	version = "*",
 }
