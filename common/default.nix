@@ -38,7 +38,6 @@
     pkgs.lazygit
     pkgs.nodejs
     pkgs.ripgrep
-    pkgs.rtk
     pkgs.tree-sitter
     pkgs.wget
 
