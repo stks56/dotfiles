@@ -66,17 +66,7 @@
   },
   "model": "opus[1m]",
   "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/rtk-rewrite.sh"
-          }
-        ]
-      }
-    ]
+    "PreToolUse": []
   },
   "statusLine": {
     "type": "command",
