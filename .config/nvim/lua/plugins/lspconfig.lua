@@ -7,7 +7,7 @@ return {
 	},
 	opts = {
 		servers = {
-			copilot = {},
+			-- copilot = {},
 			gopls = {
 				completeUnimported = true,
 				analyses = {

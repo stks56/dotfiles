@@ -25,7 +25,7 @@
 
     # user
     pkgs.bat
-    pkgs.copilot-language-server
+    # pkgs.copilot-language-server
     pkgs.delta
     pkgs.eza
     pkgs.fd

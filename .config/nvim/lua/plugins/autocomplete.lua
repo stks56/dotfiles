@@ -50,7 +50,7 @@
 -- 	end,
 -- }
 return {
-	"github/copilot.vim",
-	lazy = false,
-	options = {},
+	-- 	"github/copilot.vim",
+	-- 	lazy = false,
+	-- 	options = {},
 }
