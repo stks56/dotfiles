@@ -14,7 +14,7 @@ return {
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
-			go = { "gofumpt", "goimports", lsp_format = "first" },
+			go = { "gofumpt", lsp_format = "first" },
 			json = { "jq" },
 			-- yaml = { "yamlfmt" },
 			nix = { "nixfmt" },
