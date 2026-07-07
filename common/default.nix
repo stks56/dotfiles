@@ -41,6 +41,9 @@
     pkgs.tree-sitter
     pkgs.wget
 
+    # csharp language
+    pkgs.roslyn-ls
+
     # lua language
     pkgs.lua-language-server
     pkgs.stylua
