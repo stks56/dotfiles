@@ -20,6 +20,10 @@
       url = "github:sadjow/gemini-cli-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-pup-cli = {
+      url = "github:DeevsDeevs/pup-cli-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -29,6 +33,7 @@
       nix-claude-code,
       nix-codex-cli,
       nix-gemini-cli,
+      nix-pup-cli,
       ...
     }:
     {
@@ -40,6 +45,7 @@
               nix-claude-code.overlays.default
               nix-codex-cli.overlays.default
               nix-gemini-cli.overlays.default
+              nix-pup-cli.overlays.default
             ];
           };
           modules = [
@@ -54,6 +60,7 @@
               nix-claude-code.overlays.default
               nix-codex-cli.overlays.default
               nix-gemini-cli.overlays.default
+              nix-pup-cli.overlays.default
             ];
           };
           modules = [
@@ -68,6 +75,7 @@
               nix-claude-code.overlays.default
               nix-codex-cli.overlays.default
               nix-gemini-cli.overlays.default
+              nix-pup-cli.overlays.default
             ];
           };
           modules = [
