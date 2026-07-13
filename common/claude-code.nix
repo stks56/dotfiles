@@ -1,21 +1,22 @@
 { config, pkgs, ... }:
 
-let
-  mkLink =
-    path:
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/.config/claude/${path}";
-in
 {
   home.packages = [
     pkgs.claude-code
   ];
 
-  # home.file = {
-  #   ".claude/settings.json".source = mkLink "settings.json";
-  #   ".claude/statusline.sh".source = mkLink "statusline.sh";
-  #   ".claude/CLAUDE.md".source = mkLink "CLAUDE.md";
-  #   ".claude/RTK.md".source = mkLink "RTK.md";
-  #   ".claude/hooks".source = mkLink "hooks";
-  #   ".claude/skills".source = mkLink "skills";
-  # };
+  home.file = {
+    ".claude/CLAUDE.md".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/AGENTS.md";
+    ".claude/settings.json".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/claude/settings.json";
+    ".claude/statusline.sh".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/claude/statusline.sh";
+    ".claude/agents".source = config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/agents";
+    ".claude/commands".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/claude/commands";
+    ".claude/hooks".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/claude/hooks";
+    ".claude/skills".source = config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/skills";
+  };
 }

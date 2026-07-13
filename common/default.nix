@@ -94,6 +94,7 @@
   programs.home-manager.enable = true;
 
   imports = [
+    ./agents.nix
     ./claude-code.nix
     ./codex-cli.nix
     ./gemini-cli.nix
