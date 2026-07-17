@@ -29,6 +29,7 @@
     pkgs.delta
     pkgs.eza
     pkgs.fd
+    pkgs.fixjson
     pkgs.fzf
     pkgs.gh
     pkgs.git

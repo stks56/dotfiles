@@ -15,7 +15,7 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			go = { "gofumpt", lsp_format = "first" },
-			json = { "jq" },
+			json = { "fixjson", "jq" },
 			-- yaml = { "yamlfmt" },
 			nix = { "nixfmt" },
 		},
