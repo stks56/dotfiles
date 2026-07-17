@@ -121,11 +121,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779998039,
-        "narHash": "sha256-TrNmfalbdX4VOXJyBYDX+jH6Ph7YJbUMAnq6/akCyms=",
+        "lastModified": 1783972079,
+        "narHash": "sha256-tpqpYRF4db6e+cvatuQsH3XPSpA4Qwtjpqp64pwB0M0=",
         "owner": "sadjow",
         "repo": "codex-cli-nix",
-        "rev": "803b7de2cccae3abbb9d23c10826af087428b06e",
+        "rev": "b82ddac7c152d3e0bd8203ecd2cc6ccb8848bbd8",
         "type": "github"
       },
       "original": {
