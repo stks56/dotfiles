@@ -6,12 +6,15 @@
   ];
 
   home.file = {
-    ".codex/AGENTS.md".source =
+    ".agents/AGENTS.md".source =
       config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/AGENTS.md";
-    ".codex/config.toml".source =
+    ".agents/config.toml".source =
       config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/codex/config.toml";
-    ".codex/prompts".source =
+    ".agents/prompts".source =
       config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/codex/prompts";
-    ".codex/skills".source = config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/skills";
+    ".agents/skills" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/skills";
+      force = true;
+    };
   };
 }
