@@ -64,6 +64,23 @@ vim.api.nvim_create_user_command("CopyRelativeFilePathWithLineAndCol", function(
 	copy_to_clipboard(format_path(":.") .. ":" .. vim.fn.line(".") .. ":" .. vim.fn.col("."))
 end, { nargs = 0, force = true, desc = "Copy relative file path with line and col to the clipboard" })
 
+vim.api.nvim_create_user_command("Open", function()
+	local path = vim.api.nvim_buf_get_name(0)
+	if path == "" then
+		vim.notify("Current buffer has no file path", vim.log.levels.ERROR)
+		return
+	end
+
+	vim.system({ "open", path }, { text = true }, function(result)
+		if result.code ~= 0 then
+			vim.schedule(function()
+				local message = vim.trim(result.stderr or "")
+				vim.notify(message ~= "" and message or "Failed to open current buffer", vim.log.levels.ERROR)
+			end)
+		end
+	end)
+end, { nargs = 0, force = true, desc = "Open the current buffer with the default application" })
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
 		"c",

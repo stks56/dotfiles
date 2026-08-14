@@ -24,6 +24,7 @@ return {
 			{ "<leader>y", group = "Yanks (user command)" },
 			{ "<leader>a", group = "AI Coding(sidekick.nvim)" },
 			{ "<leader>b", group = "Basic others" },
+			{ "<leader>bo", "<cmd>Open<CR>", desc = "Open buffer with default application" },
 			{ "<leader>yy", ":CopyRelativeFilePath<CR>", desc = "Copy relative file path" },
 			{ "<leader>ya", ":CopyAbsoluteFilePath<CR>", desc = "Copy absolute file path" },
 			{ "<leader>yf", ":CopyFileName<CR>", desc = "Copy file name" },
