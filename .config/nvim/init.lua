@@ -1,4 +1,4 @@
 require("config.option")
 require("config.keymap")
-require("config.autocmd")
+require("config.cmd")
 require("config.lazy")
