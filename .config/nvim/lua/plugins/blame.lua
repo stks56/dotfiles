@@ -3,4 +3,10 @@ return {
 	lazy = false,
 	opts = {},
 	version = "*",
+	keys = {
+		{
+			"<leader>gb",
+			"<CMD>BlameToggle<CR>",
+		},
+	},
 }
