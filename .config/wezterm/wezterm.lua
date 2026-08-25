@@ -13,7 +13,7 @@ config.window_decorations = "RESIZE"
 config.font = wezterm.font_with_fallback({
 	"Google Sans Code",
 	"Intel One Mono",
-	"Menlo",
+	"Noto Sans CJK JP",
 })
 
 -- Debug
