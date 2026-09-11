@@ -24,6 +24,9 @@
       url = "github:DeevsDeevs/pup-cli-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-omp = {
+      url = "github:can1357/oh-my-pi";
+    };
   };
 
   outputs =
@@ -34,6 +37,7 @@
       nix-codex-cli,
       nix-gemini-cli,
       nix-pup-cli,
+      nix-omp,
       ...
     }:
     {
@@ -46,6 +50,7 @@
               nix-codex-cli.overlays.default
               nix-gemini-cli.overlays.default
               nix-pup-cli.overlays.default
+              nix-omp.overlays.default
             ];
           };
           modules = [
@@ -61,6 +66,7 @@
               nix-codex-cli.overlays.default
               nix-gemini-cli.overlays.default
               nix-pup-cli.overlays.default
+              nix-omp.overlays.default
             ];
           };
           modules = [
@@ -76,6 +82,7 @@
               nix-codex-cli.overlays.default
               nix-gemini-cli.overlays.default
               nix-pup-cli.overlays.default
+              nix-omp.overlays.default
             ];
           };
           modules = [

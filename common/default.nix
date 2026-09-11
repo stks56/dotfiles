@@ -102,6 +102,7 @@
     ./git-repository.nix
     ./go.nix
     ./neovim.nix
+    ./omp.nix
     ./pup-cli.nix
     ./zsh.nix
   ];
