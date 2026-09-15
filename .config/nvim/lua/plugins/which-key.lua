@@ -35,6 +35,11 @@ return {
 				":CopyRelativeFilePathWithLineAndCol<CR>",
 				desc = "Copy relative file path with line and col",
 			},
+			{
+				"<leader>gc",
+				":OpenPullRequest<CR>",
+				desc = "Open github pull request in current git branch",
+			},
 		})
 	end,
 	version = "*",

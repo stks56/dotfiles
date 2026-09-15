@@ -73,3 +73,55 @@ vim.api.nvim_create_user_command("Open", function()
 		end
 	end)
 end, { nargs = 0, force = true, desc = "Open the current buffer with the default application" })
+
+local function notify_error(message)
+	vim.schedule(function()
+		vim.notify(message, vim.log.levels.ERROR)
+	end)
+end
+
+local function open_pull_request_picker(prs)
+	Snacks.picker.gh_pr({
+		finder = function()
+			return prs
+		end,
+		live = false,
+		supports_live = false,
+	})
+end
+
+local function list_pull_requests(branch)
+	Snacks.gh.api.list("pr", function(prs)
+		if not prs or #prs == 0 then
+			notify_error("No pull request found for branch: " .. branch)
+			return
+		end
+
+		vim.schedule(function()
+			open_pull_request_picker(prs)
+		end)
+	end, {
+		state = "all",
+		search = "head:" .. branch,
+	})
+end
+
+vim.api.nvim_create_user_command("OpenPullRequest", function()
+	vim.system({ "git", "branch", "--show-current" }, { text = true }, function(result)
+		if result.code ~= 0 then
+			local message = vim.trim(result.stderr or "")
+			notify_error(message ~= "" and message or "Failed to get current branch")
+			return
+		end
+
+		local branch = vim.trim(result.stdout or "")
+		if branch == "" then
+			notify_error("Not on a branch")
+			return
+		end
+
+		vim.schedule(function()
+			list_pull_requests(branch)
+		end)
+	end)
+end, { nargs = 0, force = true, desc = "Open the pull requests of the current branch with snacks.gh" })
