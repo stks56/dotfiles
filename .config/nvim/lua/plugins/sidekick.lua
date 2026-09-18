@@ -9,6 +9,15 @@ return {
 				watch = true, -- notify Neovim of file changes done by AI CLI tools
 				---@class sidekick.win.Opts
 				win = {
+					---@param terminal sidekick.cli.Terminal
+					config = function(terminal)
+						local layouts = { claude = "right", codex = "left" }
+						local layout = layouts[terminal.tool.name]
+						if layout then
+							terminal.opts.layout = layout
+							terminal.opts.split.width = 0.5
+						end
+					end,
 					split = {
 						width = 0.5, -- 0.x values mean percentages of the screen width
 					},
@@ -41,9 +50,17 @@ return {
 			{
 				"<c-.>",
 				function()
-					require("sidekick.cli").toggle()
+					require("sidekick.cli").toggle({ name = "claude", focus = true })
 				end,
-				desc = "Sidekick Toggle",
+				desc = "Sidekick Toggle Claude",
+				mode = { "n", "t", "i", "x" },
+			},
+			{
+				"<c-,>",
+				function()
+					require("sidekick.cli").toggle({ name = "codex", focus = true })
+				end,
+				desc = "Sidekick Toggle Codex",
 				mode = { "n", "t", "i", "x" },
 			},
 			{
@@ -51,8 +68,6 @@ return {
 				function()
 					require("sidekick.cli").select()
 				end,
-				-- Or to select only installed tools:
-				-- require("sidekick.cli").select({ filter = { installed = true } })
 				desc = "Select CLI",
 			},
 			{
