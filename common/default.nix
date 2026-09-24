@@ -103,6 +103,7 @@
     ./go.nix
     ./neovim.nix
     ./omp.nix
+    ./pi.nix
     ./pup-cli.nix
     ./zsh.nix
   ];

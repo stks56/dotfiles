@@ -27,6 +27,9 @@
     nix-omp = {
       url = "github:can1357/oh-my-pi";
     };
+    nix-pi = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
   };
 
   outputs =
@@ -38,8 +41,14 @@
       nix-gemini-cli,
       nix-pup-cli,
       nix-omp,
+      nix-pi,
       ...
     }:
+    let
+      piOverlay = final: prev: {
+        pi-coding-agent = nix-pi.legacyPackages.${prev.stdenv.hostPlatform.system}.pi-coding-agent;
+      };
+    in
     {
       homeConfigurations = {
         "elmin" = home-manager.lib.homeManagerConfiguration {
@@ -51,6 +60,7 @@
               nix-gemini-cli.overlays.default
               nix-pup-cli.overlays.default
               nix-omp.overlays.default
+              piOverlay
             ];
           };
           modules = [
@@ -67,6 +77,7 @@
               nix-gemini-cli.overlays.default
               nix-pup-cli.overlays.default
               nix-omp.overlays.default
+              piOverlay
             ];
           };
           modules = [
@@ -83,6 +94,7 @@
               nix-gemini-cli.overlays.default
               nix-pup-cli.overlays.default
               nix-omp.overlays.default
+              piOverlay
             ];
           };
           modules = [

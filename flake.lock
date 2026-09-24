@@ -273,6 +273,22 @@
         "type": "github"
       }
     },
+    "nix-pi": {
+      "locked": {
+        "lastModified": 1790185690,
+        "narHash": "sha256-xJ+X4hBtOcAFGBOe5nAMyMUeF9foJBmIOu3NjBqBycU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "4975466d324710c576dc11ad614684e6bd8cad8e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nix-pup-cli": {
       "inputs": {
         "flake-utils": "flake-utils_3",
@@ -349,6 +365,7 @@
         "nix-codex-cli": "nix-codex-cli",
         "nix-gemini-cli": "nix-gemini-cli",
         "nix-omp": "nix-omp",
+        "nix-pi": "nix-pi",
         "nix-pup-cli": "nix-pup-cli",
         "nixpkgs": "nixpkgs_2"
       }
