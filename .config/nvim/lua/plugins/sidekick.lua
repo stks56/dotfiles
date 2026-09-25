@@ -11,7 +11,7 @@ return {
 				win = {
 					---@param terminal sidekick.cli.Terminal
 					config = function(terminal)
-						local layouts = { claude = "right", codex = "left" }
+						local layouts = { claude = "right", omp = "left" }
 						local layout = layouts[terminal.tool.name]
 						if layout then
 							terminal.opts.layout = layout
@@ -23,6 +23,16 @@ return {
 					},
 					keys = {
 						prompt = false,
+					},
+				},
+				tools = {
+					omp = {
+						cmd = { "omp" },
+						is_proc = "\\<omp\\>",
+						url = "https://github.com/can1357/oh-my-pi",
+						resume = { "--resume" },
+						continue = { "--continue" },
+						native_scroll = false,
 					},
 				},
 				prompts = {
@@ -58,9 +68,9 @@ return {
 			{
 				"<c-,>",
 				function()
-					require("sidekick.cli").toggle({ name = "codex", focus = true })
+					require("sidekick.cli").toggle({ name = "omp", focus = true })
 				end,
-				desc = "Sidekick Toggle Codex",
+				desc = "Sidekick Toggle Omp",
 				mode = { "n", "t", "i", "x" },
 			},
 			{
