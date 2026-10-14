@@ -16,5 +16,7 @@
       source = config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/pi/models.json";
       force = true;
     };
+    ".pi/agent/themes".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/pi/themes";
   };
 }
