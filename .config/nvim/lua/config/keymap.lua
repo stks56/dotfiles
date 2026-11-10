@@ -8,9 +8,7 @@ local noremap = { noremap = true }
 keymap("n", "grd", vim.lsp.buf.document_symbol, { desc = "Lsp DocumentSymbol (builtin)" })
 keymap("n", "grs", vim.lsp.buf.signature_help, { desc = "Lsp SignatureHelp (builtin)" })
 keymap("n", "grR", "<cmd>lsp restart<CR>", { desc = "Lsp Restart" })
-keymap("n", "grp", vim.lsp.buf.implementation, { desc = "Lsp Implementation (builtin)" })
-keymap("n", "gri", vim.lsp.buf.incoming_calls, { desc = "Lsp IncomingCalls (builtin)" })
-keymap("n", "gro", vim.lsp.buf.outgoing_calls, { desc = "Lsp OutgoingCalls (builtin)" })
+keymap("n", "gri", vim.lsp.buf.implementation, { desc = "Lsp Implementation (builtin)" })
 
 -- Redo reverse u
 keymap("n", "U", "<c-r>", opts)
