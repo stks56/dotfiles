@@ -30,6 +30,9 @@
     nix-pi = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
+    nix-golangci-lint = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
   };
 
   outputs =
@@ -42,11 +45,15 @@
       nix-pup-cli,
       nix-omp,
       nix-pi,
+      nix-golangci-lint,
       ...
     }:
     let
       piOverlay = final: prev: {
         pi-coding-agent = nix-pi.legacyPackages.${prev.stdenv.hostPlatform.system}.pi-coding-agent;
+      };
+      golangciLintOverlay = final: prev: {
+        golangci-lint = nix-golangci-lint.legacyPackages.${prev.stdenv.hostPlatform.system}.golangci-lint;
       };
     in
     {
@@ -61,6 +68,7 @@
               nix-pup-cli.overlays.default
               nix-omp.overlays.default
               piOverlay
+              golangciLintOverlay
             ];
           };
           modules = [
@@ -78,6 +86,7 @@
               nix-pup-cli.overlays.default
               nix-omp.overlays.default
               piOverlay
+              golangciLintOverlay
             ];
           };
           modules = [
@@ -95,6 +104,7 @@
               nix-pup-cli.overlays.default
               nix-omp.overlays.default
               piOverlay
+              golangciLintOverlay
             ];
           };
           modules = [
