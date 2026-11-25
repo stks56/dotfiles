@@ -26,21 +26,7 @@ return {
 					},
 				},
 				tools = {
-					omp_1 = {
-						cmd = { "omp" },
-						url = "https://github.com/can1357/oh-my-pi",
-						resume = { "--resume" },
-						continue = { "--continue" },
-						native_scroll = false,
-					},
-					omp_2 = {
-						cmd = { "omp" },
-						url = "https://github.com/can1357/oh-my-pi",
-						resume = { "--resume" },
-						continue = { "--continue" },
-						native_scroll = false,
-					},
-					omp_3 = {
+					omp = {
 						cmd = { "omp" },
 						url = "https://github.com/can1357/oh-my-pi",
 						resume = { "--resume" },

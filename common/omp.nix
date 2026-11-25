@@ -2,6 +2,6 @@
 
 {
   home.packages = [
-    pkgs.omp
+    pkgs.llm-agents.omp
   ];
 }

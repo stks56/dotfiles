@@ -8,27 +8,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-claude-code = {
-      url = "github:sadjow/claude-code-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-codex-cli = {
-      url = "github:sadjow/codex-cli-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-gemini-cli = {
-      url = "github:sadjow/gemini-cli-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+    nix-llm-agents = {
+      url = "github:numtide/llm-agents.nix";
     };
     nix-pup-cli = {
       url = "github:DeevsDeevs/pup-cli-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-omp = {
-      url = "github:can1357/oh-my-pi";
-    };
-    nix-pi = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
     };
     nix-golangci-lint = {
       url = "github:nixos/nixpkgs/nixos-unstable";
@@ -39,18 +24,14 @@
     {
       nixpkgs,
       home-manager,
-      nix-claude-code,
-      nix-codex-cli,
-      nix-gemini-cli,
+      nix-llm-agents,
       nix-pup-cli,
-      nix-omp,
-      nix-pi,
       nix-golangci-lint,
       ...
     }:
     let
-      piOverlay = final: prev: {
-        pi-coding-agent = nix-pi.legacyPackages.${prev.stdenv.hostPlatform.system}.pi-coding-agent;
+      llmAgentsOverlay = final: prev: {
+        llm-agents = nix-llm-agents.packages.${prev.stdenv.hostPlatform.system};
       };
       golangciLintOverlay = final: prev: {
         golangci-lint = nix-golangci-lint.legacyPackages.${prev.stdenv.hostPlatform.system}.golangci-lint;
@@ -62,12 +43,8 @@
           pkgs = import nixpkgs {
             system = "x86_64-linux";
             overlays = [
-              nix-claude-code.overlays.default
-              nix-codex-cli.overlays.default
-              nix-gemini-cli.overlays.default
+              llmAgentsOverlay
               nix-pup-cli.overlays.default
-              nix-omp.overlays.default
-              piOverlay
               golangciLintOverlay
             ];
           };
@@ -80,12 +57,8 @@
           pkgs = import nixpkgs {
             system = "x86_64-linux";
             overlays = [
-              nix-claude-code.overlays.default
-              nix-codex-cli.overlays.default
-              nix-gemini-cli.overlays.default
+              llmAgentsOverlay
               nix-pup-cli.overlays.default
-              nix-omp.overlays.default
-              piOverlay
               golangciLintOverlay
             ];
           };
@@ -98,12 +71,8 @@
           pkgs = import nixpkgs {
             system = "aarch64-darwin";
             overlays = [
-              nix-claude-code.overlays.default
-              nix-codex-cli.overlays.default
-              nix-gemini-cli.overlays.default
+              llmAgentsOverlay
               nix-pup-cli.overlays.default
-              nix-omp.overlays.default
-              piOverlay
               golangciLintOverlay
             ];
           };

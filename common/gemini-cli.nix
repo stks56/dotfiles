@@ -2,6 +2,6 @@
 
 {
   home.packages = [
-    pkgs.gemini-cli
+    pkgs.llm-agents.gemini-cli
   ];
 }

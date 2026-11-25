@@ -2,7 +2,8 @@
 
 {
   home.packages = [
-    pkgs.codex
+    pkgs.llm-agents.codex
+    pkgs.llm-agents.codex-acp
   ];
 
   home.file = {

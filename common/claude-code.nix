@@ -2,7 +2,8 @@
 
 {
   home.packages = [
-    pkgs.claude-code
+    pkgs.llm-agents.claude-code
+    pkgs.llm-agents.claude-agent-acp
   ];
 
   home.file = {
@@ -10,6 +11,10 @@
       config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/AGENTS.md";
     ".claude/settings.json".source =
       config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/claude/settings.json";
+    ".claude/settings.databricks.json".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/claude/settings.databricks.json";
+    ".local/bin/claude-databricks".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/claude/bin/claude-databricks";
     ".claude/statusline.sh".source =
       config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/claude/statusline.sh";
     ".claude/agents".source = config.lib.file.mkOutOfStoreSymlink "${config.agents.repository}/agents";

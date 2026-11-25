@@ -2,7 +2,8 @@
 
 {
   home.packages = [
-    pkgs.pi-coding-agent
+    pkgs.llm-agents.pi
+    pkgs.llm-agents.pi-acp
   ];
 
   home.file = {
